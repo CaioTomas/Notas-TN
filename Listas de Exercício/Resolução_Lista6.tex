@@ -1,0 +1,235 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista 6}
+\date{22/10/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\begin{exercise}
+		As condições do Teorema do Resto Chinês são satisfeitas, portanto podemos usá-lo. 
+		\paragraph{(i) Soluções individuais:} $m_1 = 1, m_2 = 2, m_3 = 1$
+		\paragraph{(ii) Cálculo dos $n_i$'s:} $n_1 = 221, n_2 = 187, n_3 = 143$
+		\paragraph{(iii) Cálculo dos $z_i$'s:} 
+		\begin{align*}
+		221z\equiv 1\mod 11 \Rightarrow z\equiv 1\mod 11 \Rightarrow z_1 = 1 \\
+		187z\equiv 1\mod 13 \Rightarrow 5z\equiv 1\mod 13 \Rightarrow z_2 = 8 \\
+		143z\equiv 1\mod 17 \Rightarrow 7z\equiv 1\mod 17 \Rightarrow z_3 = 5 \\
+		\end{align*}
+		\paragraph{(iv) Solução:} a solução é dada por
+		\begin{align*}
+		m_0 &= 1\cdot 221\cdot 1 + 2\cdot 187\cdot 8 + 1\cdot 143\cdot 5 \\
+		&= 3928 \\
+		&\equiv 1497 \mod 2431 (= 11\cdot 13\cdot 17)
+		\end{align*} 
+	\end{exercise}
+	\begin{exercise}
+		As condições do Teorema do Resto Chinês são satisfeitas, logo podemos usá-lo.
+		\paragraph{(i) Soluções individuais:} $x_1 = 6, x_2 = 3, x_3 = 6$
+		\paragraph{(ii) Cálculo dos $n_i$'s:} $n_1 = 143, n_2 = 104, n_3 = 88$
+		\paragraph{(iii) Cálculo dos $z_i$'s:} 
+		\begin{align*}
+		143z\equiv 1\mod 8 \Rightarrow 7z\equiv 1\mod 8 \Rightarrow z_1 = 7 \\
+		104z\equiv 1\mod 11 \Rightarrow 5z\equiv 1\mod 11 \Rightarrow z_2 = 9 \\
+		88z\equiv 1\mod 13 \Rightarrow 10z\equiv 1\mod 13 \Rightarrow z_3 = 4 \\
+		\end{align*}
+		\paragraph{(iv) Solução:} a solução é dada por
+		\begin{align*}
+		x_0 &= 6\cdot 143\cdot 7 + 3\cdot 104\cdot 9 + 6\cdot 88\cdot 4 \\
+		&= 10926 \\
+		&\equiv 630\mod 1144 (= 8\cdot 11\cdot 13)
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Novamente, as condições do Teorema do Resto Chinês são satisfeitas, e podemos utilizá-lo.
+		\paragraph{(i) Soluções individuais:} $x_1 = 6, x_2 = 8, x_3 = 9, x_4 = 4$
+		\paragraph{(ii) Cálculo dos $n_i$'s:} $n_1 = 1287, n_2 = 1001, n_3 = 819, n_4 = 693$
+		\paragraph{(iii) Cálculo dos $z_i$'s:} 
+		\begin{align*}
+		1287z\equiv 1\mod 7 \Rightarrow 6z\equiv 1\mod 7 \Rightarrow z_1 = 6 \\
+		1001z\equiv 1\mod 9 \Rightarrow 2z\equiv 1\mod 9 \Rightarrow z_2 = 5 \\
+		819z\equiv 1\mod 11 \Rightarrow 5z\equiv 1\mod 11 \Rightarrow z_3 = 9 \\
+		693z\equiv 1\mod 13 \Rightarrow 4z\equiv 1\mod 13 \Rightarrow z_4 = 10 \\
+		\end{align*}
+		\paragraph{(iv) Solução:} a solução é dada por
+		\begin{align*}
+		x_0 &= 6\cdot 1287\cdot 6 + 8\cdot 1001\cdot 5 + 9\cdot 819\cdot 9 + 4\cdot 693\cdot 10 \\
+		&= 188621 \\
+		&\equiv 8441\mod 9009 (=7\cdot 9\cdot 11\cdot 13)
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Note que $f(3) = 1\cdot 27\equiv 0\mod 3^3$ e $f'(3) = 13\not\equiv 0\mod 3$. Queremos encontrar $t$ tal que
+		\begin{align*}
+		f(3 + t\cdot 3^3) \equiv 0\mod 3^4 \Longleftrightarrow 1 + 13t\equiv 0\mod 3 \Longleftrightarrow t = 2
+		\end{align*}
+		de modo que $3 + 2\cdot 3^3 = 57$ é raiz módulo $3^4$ de $f(x) = 2x^2 + x + 6$, i.e., tal que
+		\begin{align*}
+		f(57)\equiv 0\mod 81.
+		\end{align*} 
+	\end{exercise}
+	\begin{exercise}
+		Note que $f(x) = x^3 + x + 57$ e $f'(x) = 3x^2 + 1$. Além disso, note que
+		\begin{align*}
+		f(4) = 64 + 4 + 57 = 125 = 25\cdot 5\equiv 0\mod 25 \text{ e } f'(4) = 49\not\equiv 0\mod 25
+		\end{align*}
+		Queremos encontrar $t$ tal que $f(4 + t\cdot 5^2)\equiv 0\mod 5^3$. Isso equivale a encontrar solução para
+		\begin{align*}
+		5 + 49t\equiv 0\mod 5 \Rightarrow 4t\equiv 0\mod 5\Rightarrow t = 5
+		\end{align*}
+		de modo que
+		\begin{align*} 
+		4 + 5\cdot 5^2 = 129
+		\end{align*}
+		é uma raiz de $f(x) = x^3 + x + 57$ módulo $5^3.$
+	\end{exercise}
+	\begin{exercise}
+		Sabemos que $f(x) = x^4 + x + 7\equiv 0\mod 675 (= 3^3\cdot 5^2)$ tem solução se, e só se
+		\begin{align*}
+		\begin{cases}
+		f(x) \equiv 0\mod 3^3 \\
+		f(x) \equiv 0\mod 5^2
+		\end{cases} \text{ tem solução.}
+		\end{align*}
+		Note que $f(2) = 16 + 2 + 7 = 25 \equiv 0\mod 5^2$ e $f(10) = 1017\equiv 0\mod 27$. Pelo Teorema do Resto Chinês, 
+		\begin{align*}
+		\begin{cases}
+		x\equiv 2\mod 25 \\
+		x\equiv 10\mod 27
+		\end{cases}\text{ tem solução. Vamos resolver esse sistema!}
+		\end{align*}
+		\paragraph{(i) Soluçõs individuais:} $x_1 = 2, x_2 = 10$
+		\paragraph{(ii) Cálculo dos $n_i$'s:} $n_1 = 27, n_2 = 25$
+		\paragraph{(iii) Cálculo dos $z_i$'s:} 
+		\begin{align*}
+		27z\equiv 1\mod 25 \Rightarrow 2z\equiv 1\mod 25 \Rightarrow z_1 = 13 \\
+		27z\equiv 1\mod 27 \Rightarrow 25z\equiv 1\mod 27 \Rightarrow z_2 = 13 \\
+		\end{align*}
+		\paragraph{(iv) Solução:} a solução é dada por
+		\begin{align*}
+		x_0 = 2\cdot 27\cdot 13 + 10\cdot 25\cdot 13 = 3952 \equiv 577\mod 675
+		\end{align*}
+		de modo que $577$ é a raiz desejada, i.e.
+		\begin{align*}
+		f(577)\equiv 0\mod 675.
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Note que $21025 = 5^2\cdot 29^2$. Sabemos que $f(x) = x^4 + x^3 + 8 \equiv 0\mod 21025$ se, e só se
+		\begin{align*}
+			\begin{cases}
+			f(x)\equiv 0\mod 25 \\
+			f(x)\equiv 0\mod 841
+			\end{cases}
+		\end{align*}
+		Vamos primeiro encontrar uma solução para a primeira equação. 
+		\par\vspace{0.3cm} Note que $f(1) = 5\cdot 2\equiv 0\mod 5$ e $f'(1) = 7\not\equiv 0\mod 5$. Daí, queremos encontrar $t$ tal que
+		\begin{align*}
+		f(1 + t\cdot 5) \equiv 0\mod 5^2 \Leftrightarrow 2 + 7t \equiv 0\mod 5 \Rightarrow t = 4
+		\end{align*}
+		de modo que $1 + 4\cdot 5 = 21$ solução de $f(x) \equiv 0\mod 25$.
+		\par\vspace{0.3cm} Note também que $f(3) = 4\cdot 29 \equiv 0\mod 29$ e $f'(3) = 135\not\equiv 0\mod 29$. Queremos $t$ tal que
+		\begin{align*}
+		f(3+t\cdot 29) \equiv 0\mod 841 \Leftrightarrow 4 + 135t\equiv 0\mod 29 \Rightarrow t = 12
+		\end{align*}
+		de modo que $3 + 12\cdot 29 = 351$ é solução de $f(x)\equiv 0\mod 841$.
+		\par\vspace{0.3cm} Agora, nosso problema se torna determinar a solução de 
+		\begin{align*}
+		\begin{cases}
+		x\equiv 21\mod 25 \\
+		x\equiv 351\mod 841
+		\end{cases}\text{ que, pelo Teorema do Resto Chinês, tem solução.}
+		\end{align*}
+		Vamos, então, encontrar essa solução.
+		\paragraph{(i) Soluções individuais:} $x_1 = 21, x_2 = 351$
+		\paragraph{(ii) Cálculo dos $n_i$'s:} $n_1 = 841, n_2 = 25$
+		\paragraph{(iii) Cálculo dos $z_i$'s:} 
+		\begin{align*}
+		841z\equiv 1\mod 25 \Rightarrow 16z\equiv 1\mod 25 \Rightarrow z_1 = 11\\
+		25z\equiv 1\mod 29^2 \Rightarrow 25z\equiv 1\mod 841 \Rightarrow z_2 = 471\\
+		\end{align*}
+		\paragraph{(iv) Solução:} a solução é dada por
+		\begin{align*}
+		x_0 = 21\cdot 841\cdot 11 + 351\cdot 25\cdot 471 = 4327296 \equiv 17171\mod 21025.
+		\end{align*}
+		Portanto, $17171$ é solução desejada, i.e.,
+		\begin{align*}
+		f(17171) \equiv 0\mod 21025
+		\end{align*}
+	\end{exercise}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

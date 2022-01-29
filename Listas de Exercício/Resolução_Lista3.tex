@@ -1,0 +1,299 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista 3}
+\date{09/09/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\begin{exercise}
+		\begin{proof}
+		Note que 
+		\begin{align*}
+		m^3 - m = (m-1)m(m+1)
+		\end{align*}
+		Sabemos também que $\mathbb{Z} = \displaystyle{\coprod_{i=0}^{2}} M_i, M_i = \left\{3q \ | \ q\in\mathbb{Z} \right\}$, i.e., podemos particionar os inteiros em termos os restos na divisão por $3$. Também podemos fazer o mesmo para $2$, i.e., dividir os inteiros em pares e ímpares. Desse modo, pelo menos um dos fatores acima é par e, além disso, pelo menos um deles é divisível por $3$ (e.g., se $m = 3q+1$, então $m-1=3q$). Logo, $6|m^3-m$.
+	\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		Note que 
+		\begin{align*}
+		412 = 2^2\cdot 103&, 32 = 2^5 \\
+		780 = 2^2\cdot 3\cdot 5\cdot 13&, 150 = 2\cdot 3\cdot 5^2 \\
+		10672 = 2^4\cdot 23\cdot 29&, 4147 = 11\cdot 13\cdot 29 
+		\end{align*}
+		logo
+		\begin{align*}
+		\mmc(412, 32) &= 2^5\cdot 103\\
+		\mmc(780, 150) &= 2^2\cdot 3\cdot 5^2\cdot 13 \\
+		\mmc(10672, 4147) &= 2^4\cdot 11\cdot 13\cdot 23\cdot 29
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Queremos todos os valores de $n$ tais que
+		\begin{align*}
+		\frac{2n - 1}{n + 7}\in\mathbb{Z}
+		\end{align*}
+		Ora, isso implica que $n+7|2n - 1$. Como $n+7|n+7$, segue do Lema 2 que
+		\begin{align*}
+		n+7|-(2n-1) + 2(n+7) \Leftrightarrow n+7|15
+		\end{align*}
+		Logo, sabemos que
+		\begin{align*}
+		n+7\in\left\{-15, -5, -3, -1, 1, 3, 5, 15 \right\}
+		\end{align*}
+		ou seja
+		\begin{align*}
+		n\in\left\{ -22, -12, -10, -8, -6, -4, -2, 8  \right\}
+		\end{align*}
+		que são os valores procurados.
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Note que
+			\begin{align*}
+			\mdc[n! + 1, (n+1)! + 1] &= \mdc[n! + 1, n\cdot n!] = \mdc[n! + 1, -n] = \mdc[1, -n] = 1 
+			\end{align*}
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Sabemos que $\displaystyle{\mathbb{Z} = \coprod_{j=0}^{k-1} M_j}$, com $M_j = \left\{ kq + j \ | \ q\in\mathbb{Z}  \right\}$, ou seja, todo $n\in\mathbb{Z}$ está em algum $M_i$. Dito de outro modo, temos $n = kq + j$, para algum $0\leq j\leq k-1$. Daí, $n + k - j = kq + k = kq_1\in M_0$ e note que $1\leq k-j\leq k$, ou seja, esse elemento está na lista (se $j=0$, $n\in M_0$). 
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Note queo coeficiente binomial
+			\begin{align*}
+			\binom{m}{k} = \frac{m!/(m-k)!}{k!}\in\mathbb{Z}
+			\end{align*}
+			Como o numerador é o produto de $m$ até $m-k+1$, i.e., o produto de $k$ inteiros consecutivos, o resultado segue (para $m$ negativo, basta tomar $\displaystyle{\binom{-m}{k}}$).
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		Sejam $a_1, a_2, \dots, a_n\in\mathbb{Z}$. Dizemos que $d\in\mathbb{N}$ é o máximo divisor comum de $a_1, a_2, \dots, a_n$ se
+		\begin{enumerate}
+			\item $d|a_i, \forall 1\leq i\leq n$ 
+			\item se $D|a_i, \forall 1\leq i\leq n$, então $D\leq d$.
+		\end{enumerate}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Sejam 
+			\begin{align*}
+			M = \left\{ a_1x_1 + \cdots + a_nx_n \ | \ x_i\in\mathbb{Z}, \forall i \right\}
+			\end{align*}
+			e
+			\begin{align*}
+			P = \left\{ m\in M \ | \ m\geq 1 \right\}\subseteq\mathbb{N}
+			\end{align*}
+			Note que $P\neq \emptyset$.	Pelo PBO, $P$ tem um menor elemento, digamos $d^{\ast} = r_1a_1 + \cdots + r_na_n$. Pelo Algoritmo de Euclides, segue que
+			\begin{align*}
+			a_i = q_id + r_i, 0\leq r_i < d^{\ast}
+			\end{align*}
+			logo \begin{align*}
+			r_i = a_i - q_id^{\ast} &= a_i - q_i(r_1a_1 + \cdots + r_na_n) \\
+			&= a_i(1 - q_ir_i) + q_i(r_1a_1 + \cdots + r_{i-1}a_{i-1} + r_{i+1}a_{i+1} + \cdots + r_na_n)\in P
+			\end{align*}
+			Contudo, note que $r_i<d^{\ast}$, o que é absurdo pelo PBO. Portanto, $r_i=0$ e $d^{\ast}|a_i$, para $i = 1, 2, \dots, n$.
+			\par Por fim, seja $d = \mdc(a_1, a_2, \dots, a_n)$. Então, como $d^{\ast}|a_j, \forall j$, segue que $d^{\ast}\leq d$. Por outro lado, como $d|a_j, \forall j$, segue do Lema 2 que $d$ divide qualquer combinação linear inteira dos $a_j$, em particular $d^{\ast}$. Logo, $d\leq d^{\ast}$ e temos $d = d^{\ast}$.
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Seja $k\in\mathbb{Z}, k\geq 4$, e tome três ímpares consecutivos
+			\begin{align*}
+			2k + 1, \hspace{0.2cm} 2(k+1) + 1, \hspace{0.2cm} 2(k+2) + 1
+			\end{align*}
+			Já sabemos que, dados $3$ inteiros consecutivos, um deles é múltiplo de $3$, um deles deixa resto $1$ na divisão por $3$ e o último deixa resto $2$. Sem perda de generalidade, suponha que $3|k$, i.e., $k = 3q, q\in\mathbb{Z}^{\ast}$ pois $k\geq 4$. Desse modo, temos
+			\begin{align*}
+			2(k+1) + 1 = 6q + 3 = 3\cdot M \notin\mathbb{P}
+			\end{align*}
+			Semelhantemente, se $k = 3q + 1$, repetimos o argumento para $2k+1$ e, se $k = 3q + 2$, repetimos o argumento para $2(k+2) + 1$. Nesse último caso, vale notar que
+			\begin{align*}
+			k + 2 = 3q + 4 = 3(q + 1) + 1
+			\end{align*}
+			de modo que
+			\begin{align*}
+			2(k+2) + 1 = 6(q + 1) + 3 = 3\cdot M_1 \notin\mathbb{P}
+			\end{align*}
+			Portanto, não existem trios de primos ímpares consecutivos além de $3,5,7$. 
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Suponha que $n! + 1$ possui fator primo $p\leq n$. Desse modo, $p|n!$ e, por hipótese, $p|n!+1$, logo $p|1$, o que é absurdo. Portanto, $n!+1$ possui fator primo maior que $n$. Desse modo, mostramos que $\forall n\in\mathbb{N}$, sempre há um fator primo maior que $n$, ou seja, $\mathbb{P}$ é infinito.
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		Queremos $p$ primo tal que $17p + 1 = n^2, n\in\mathbb{N}$. Ora, note que
+		\begin{align*}
+		17p = (n+1)(n-1)
+		\end{align*}
+		e, como $17$ e $p$ são primos, temos duas possibilidades:
+		\begin{align*}
+		17 &= n + 1 \Rightarrow n = 16 \\
+		17 &= n - 1 \Rightarrow n = 18
+		\end{align*}
+		Para $n=16$, temos $p = 15$, absurdo. Para $n=18$, temos $p=19$, que é a nossa solução.
+	\end{exercise}
+	\begin{exercise}
+		Note que
+		\begin{align*}
+		n &= a_k10^k + \cdots + a_110 + a_0 \\
+		&= 10^3(a_k10^{k-3} + \cdots + a_3) 10^2a_2 + 10a_1 + a_0 \\
+		&= 10^3M + 10^2a_2 + 10a_1 + a_0
+		\end{align*}
+		Como $8|10^3$, temos que 
+		\begin{align*}
+		8|n \Leftrightarrow 8|10^2a_2 + 10a_1 + a_0
+		\end{align*}
+		Similarmente, para $16$ também temos
+		\begin{align*}
+		n &= a_k10^k + \cdots + a_110 + a_0 \\
+		&= 10^4(a_k10^{k-4} + \cdots + a_4) + 10^3a_3 + 10^2a_2 + 10a_1 + a_0 
+		\end{align*}
+		Como $16|10^4$, temos que
+		\begin{align*}
+		16|n \Leftrightarrow 16|10^3a_3 + 10^2a_2 + 10a_1 + a_0
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+		Primeiro, note que 
+		\begin{align*}
+		10^1 &= 11 - 1 \\
+		10^2 &= 9\cdot 11 + 1 \\
+		10^3 &= 10(11 - 1) \\
+		10^4 &= 9\cdot 1111 + 1
+		\end{align*}
+		ou seja, $10^m = 9\cdot \underbrace{111\dots 1}_{m} + 1$ para $m$ par e $10^m = 10^{m-1}(11-1)$ para $m$ ímpar. Desse modo, podemos supor sem perda de generalidade que $k$ é par e reescrever $n$ em base $10$ da seguinte forma:
+		\begin{align*}
+		n &= a_k(9\cdot 111\dots 1 + 1) + \cdots + a_1(11 - 1) + a_0 \\
+		&= 9(a_k\cdot 111\dots 1 + \cdots + a_2\cdot 11) + 11(a_{k-1} + \cdots + a_1) + I  - P 
+		\end{align*}
+		sendo
+		\begin{align*}
+		I = (a_k + a_{k+2} + \cdots + a_0)
+		P = (a_{k-1} + a_{k-2} + \cdots + a_1)
+		\end{align*}
+		Note que $11$ divide as duas primeiras parcelas acima. Portanto, $11|n$ se, e só se, $11$ divide $I - P$, i.e., a diferença entre a soma dos algarismos de ordem ímpar e a soma dos alagarismos de ordem par.
+	\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		Sabemos que dados $a,b\in\mathbb{Z}$, temos $\mdc(a,b)\mmc(a,b) = ab$. Logo, temos
+		\begin{align*}
+		ab = 2^3\cdot 5^3
+		\end{align*}
+		Como $\mdc(a,b) = 10$, sabemos que $a$ e $b$ tem pelo menos um fator $2$ e um fator $5$, cada um, em suas fatorações. Portanto, as possibilidades para o par $(a,b)$ são
+		\begin{align*}
+		(10,100), \hspace{0.2cm} (20,50), \hspace{0.2cm} (100,10), \hspace{0.2cm} (50,20)
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Como $\mdc(10,11) = 1$, segue que nossa equação diofantina $10x + 11y = n$ tem inifinitas soluções \textbf{inteiras} para todo $n\in\mathbb{Z}$. Além disso, note que
+		\begin{align*}
+		1 = (-1)\cdot 10 + (1)\cdot 11 \Leftrightarrow n = (-n)\cdot 10 + (n)\cdot 11
+		\end{align*}
+		portanto $x_0, y_0 = -n, n$. Daí, como $\mdc(10,11) = 1$, as soluções têm a forma
+		\begin{align*}
+		\begin{cases}
+		x_t = -n + 11t \\
+		y_t = n - 10t
+		\end{cases}, t\in\mathbb{Z}
+		\end{align*}
+		Ademais, queremos que $x_t, y_t\in\mathbb{N}$, i.e., queremos
+		\begin{align*}
+		\begin{cases}
+		x > 0 \\
+		y > 0 
+		\end{cases} \Leftrightarrow \frac{n}{11} < t < \frac{n}{10}
+		\end{align*} 
+		Queremos $n$ tal que $\displaystyle{ \left( \frac{n}{11}, \frac{n}{10} \right) }$ contenha exatamente $9$ inteiros. Nesse caso,
+		\begin{align*}
+		\frac{n}{10} - \frac{n}{11} = \frac{n}{110} = 10 \Leftrightarrow n = 1100
+		\end{align*}
+		Daí, temos $100 < t < 110$, e as soluções naturais são
+		\begin{align*}
+		(11, 90) \\
+		(22, 80) \\
+		(33, 70) \\
+		(44, 60) \\
+		(55, 50) \\
+		(66, 40) \\
+		(77, 30) \\
+		(88, 20) \\
+		(99, 10) \\
+		\end{align*}
+	\end{exercise}
+	
+	
+	
+	
+\end{document}

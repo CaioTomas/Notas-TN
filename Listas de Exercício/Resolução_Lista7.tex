@@ -1,0 +1,202 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\ind}{ind}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista 7}
+\date{10/11/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\begin{exercise}
+		Vamos aplicar o algoritmo.
+		\begin{enumerate}[(1)]
+			\item $\phi(29) = 28 = 2^2\cdot 7$
+			\item $h_1 = 14, a_1 = 2, h_2 = 4, a_2 = 3$
+			\item $\beta_1 = 7, g_1 = 2^7, \beta_2 = 4, g_2 = 3^4$
+			\item $g = g_1g_2 = 2^7\cdot 3^4\equiv 15\mod 29$.
+		\end{enumerate}
+	Os divisores positivos de $\phi(29) = 28$ são $1,2,4,7,14,28$. Daí, temos
+	\begin{align*}
+	T_{28} &= \left\{ 15,... \right\} \\
+	T_{14} &= \left\{ 2,6,10,18,22,26 \right\} \\
+	T_{7} &= \left\{ 4,8,12,16,20,24 \right\} \\
+	T_{4} &= \left\{ 7,21 \right\} \\
+	T_{2} &= \left\{ 14 \right\} \\
+	T_{1} &= \left\{ 1 \right\}
+	\end{align*}
+	Notando novamente que os divisores positivos de $\phi(29) = 28$ são $1,2,4,7,14,28$, temos
+	\begin{align*}
+	\sum_d\phi(d) = \phi(1) + \phi(2) + \phi(4) + \phi(7) + \phi(14) + \phi(28) = 1+1+2+6+6+12 = 28 = \phi(29)
+	\end{align*}
+	Por fim, calculando os índices módulo $15$, temos
+	\begin{align*}
+	15\equiv 15 \Longrightarrow \ind_{15}(15) = 1 \\
+	15^2\equiv 22 \Longrightarrow \ind_{15}(22) = 2 \\
+	15^3\equiv 11 \Longrightarrow \ind_{15}(11) = 3 \\
+	15^4\equiv 20 \Longrightarrow \ind_{15}(20) = 4 \\
+	15^5\equiv 10 \Longrightarrow \ind_{15}(10) = 5 \\
+	15^6\equiv 5 \Longrightarrow \ind_{15}(5) = 6\\
+	15^7\equiv 17 \Longrightarrow \ind_{15}(17) = 7 \\
+	15^8\equiv 23 \Longrightarrow \ind_{15}(23) = 8 \\
+	15^9\equiv 26 \Longrightarrow \ind_{15}(26) = 9 \\
+	15^{10}\equiv 13 \Longrightarrow \ind_{15}(13) = 10 \\
+	15^{11}\equiv 21 \Longrightarrow \ind_{15}(21) = 11 \\
+	15^{12}\equiv 25 \Longrightarrow \ind_{15}(25) = 12 \\
+	15^{13}\equiv 27 \Longrightarrow \ind_{15}(27) = 13 \\
+	15^{14}\equiv 28 \Longrightarrow \ind_{15}(28) = 14 \\
+	15^{15}\equiv 14 \Longrightarrow \ind_{15}(14) = 15 \\
+	15^{16}\equiv 7 \Longrightarrow \ind_{15}(7) = 16 \\
+	15^{17}\equiv 18 \Longrightarrow \ind_{15}(18) = 17 \\
+	15^{18}\equiv 9 \Longrightarrow \ind_{15}(9) = 18 \\
+	15^{19}\equiv 19 \Longrightarrow \ind_{15}(19) = 19 \\
+	15^{20}\equiv 24 \Longrightarrow \ind_{15}(24) = 20 \\
+	15^{21}\equiv 12 \Longrightarrow \ind_{15}(12) = 21 \\
+	15^{22}\equiv 6 \Longrightarrow \ind_{15}(6) = 22 \\
+	15^{23}\equiv 3 \Longrightarrow \ind_{15}(3) = 23 \\
+	15^{24}\equiv 16 \Longrightarrow \ind_{15}(16) = 24 \\
+	15^{25}\equiv 8 \Longrightarrow \ind_{15}(8) = 25 \\
+	15^{26}\equiv 4 \Longrightarrow \ind_{15}(4) = 26 \\
+	15^{27}\equiv 2 \Longrightarrow \ind_{15}(2) = 27 \\
+	15^{28}\equiv 1 \Longrightarrow \ind_{15}(1) = 28 \\
+	\end{align*}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Notando que $30 = 3\cdot 10\equiv 1\mod 29$, temos que
+			\begin{align*}
+			3x^{35}\equiv 7\mod 29 \Longleftrightarrow x^{35}\equiv 70\equiv 12\mod 29.
+			\end{align*}
+			Como $\mdc(35,\phi(29)) = \mdc(35,28) = 7$ e $12^{\phi(29)/7} = 12^{4} \equiv (12^2)^2\equiv (-1)^2\equiv 1\mod 29$, segue do Lema 82 que há exatamente $7$ soluções para essa congruência. Aplicando o índice módulo $15$ (que é raiz primitiva módulo $29$), obtemos
+			\begin{align*}
+			35\cdot\ind_{15}(x)&\equiv \ind_{15}(12)\mod 28 \\
+			7y&\equiv 21\mod 28 \\
+			y&\equiv 3\mod 4
+			\end{align*}
+			com $y = \ind_{15}(x)$. As soluções, em $y$, são
+			\begin{align*}
+			y_0 = 3, y_1 = 7, y_2 = 11, y_3 = 15, y_4 = 19, y_5 = 23, y_6 = 27,
+			\end{align*} 
+			que são os possíveis índices base $15$, de modo que as soluções correspondentes são
+			\begin{align*}
+			x_0 = 11, x_1 = 17, x_2 = 21, x_3 = 14, x_4 = 19, x_5 = 3, x_6 = 2.
+			\end{align*} 
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		
+	\end{exercise}
+
+	\begin{exercise}
+		Temos $\phi(17) = 16 = 2^4$, de modo que $h_1 = 8$, $a_1 = 5$, $\beta_1 = 1$ e $g = g_1 = 5$, ou seja, $5$ é raiz primitiva módulo $17$. Como $5^{\phi(17^{2-1})}\not\equiv 1\mod 17^2$, então segue dos Lemas 76,77 e 78 que $5$ é raiz primitiva módulo $17^n,\forall n\in\mathbb{N}$.
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Como $g_1$ e $g_2$ são raízes primitivas módulo $p$, então tanto $\left\{ g_1,g_1^2, \dots, g_1^{p-1} \right\}$ quanto $\left\{ g_2, g_2^2, \dots, g_2^{p-1} \right\}$ são SRR módulo $p$, de modo que $\exists! t\in\left\{ 1,2,\dots,p-1 \right\}$ tal que $g_2\equiv g_1^t\mod p$. Suponha que $g_1g_2$ seja raiz primitiva módulo $p$. Então,
+			\begin{align*}
+			\ord_p(g_1g_2) = p-1 \Leftrightarrow \ord_p(g_1^{t+1}) = p-1 \Leftrightarrow \frac{\ord_p(g_1)}{\mdc(t+1,\ord_p(g_1))} = 1 \Leftrightarrow \mdc(t+1,p-1) = 1.
+			\end{align*}
+			Note, contudo, que se $t=p-2$, então $\mdc(t+1,p-1) = p-1$, absurdo. Logo, $g_1g_2$ não é raiz primitiva.
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Note, primeiramente, que se $p\equiv 1\mod 4$, então $p = 4\lambda, \lambda\in\mathbb{Z}$ e $\mdc(2,p-1) = 2$. Sabemos também que $\ord_p(g) = p-1$ e que $\ord_p(-g)|p-1$, i.e., $\ord_p(-g)\geq 2$ (pois $1$ não é raiz primitiva). Assim, segue que
+			\begin{align*}
+			\frac{p-1}{2} = \frac{\ord_p(g)}{\mdc(2,\ord_p(g))} = \ord_p(g^2) = \ord_p((-g)^2) = \frac{\ord_p(-g)}{\mdc(2,\ord_p(-g))} %= \frac{\ord_p(-g)}{2}
+			\end{align*}
+			Há duas opções para $\mdc(2,\ord_p(-g))$: $1$ ou $2$. Se $1$, então a ordem de $-g$ é ímpar, e teríamos
+			\begin{align*}
+			\ord_p(-g) = \frac{p-1}{2}
+			\end{align*}
+			absurdo pois o lado direito é par. Logo, $\mdc(2,\ord_p(-g)) = 2$ e segue que $\ord_p(-g) = p-1$.
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Suponha que $a$ seja raiz primitiva. Então, $\ord_p(a) = p-1$, e temos que
+			\begin{align*}
+			b^{2(p-1)}\equiv 1\mod p,
+			\end{align*} 
+			i.e., $\ord_p(b)|2(p-1)\geq 4$. Por outro lado, como $a$ é raiz primitiva, então $b^2$ também é, e temos
+			\begin{align*}
+			\ord_p(b^2) = p-1 \Longleftrightarrow \frac{\ord_p(b)}{\mdc(2,\ord_p(b))} = p-1 \Longleftrightarrow \frac{\ord_p(b)}{2} = p-1 \Longleftrightarrow \ord_p(b) = 2(p-1).
+			\end{align*}
+			Mas isso contraria o fato de que $\ord_p(b)|p-1$, logo $a$ não é raiz primitiva.
+		\end{proof}
+	\end{exercise}
+	
+	
+	
+\end{document}

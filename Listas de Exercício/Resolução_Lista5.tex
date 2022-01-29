@@ -1,0 +1,332 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista 5}
+\date{16/10/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\begin{exercise}
+		Note que $2^{23} \equiv (64)^3\cdot 2^5 \equiv (17)^3\cdot 32 \equiv 25\cdot 32 \equiv 800 \equiv 1\mod 47$.   
+	\end{exercise}
+	\begin{exercise}
+		Note que $\phi(51) = \phi(3\cdot 17) = \phi(3)\phi(17) = 32$, de modo que $7^{32}\equiv 1\mod 51$ pelo Lema de Euler. Logo, $7^{34}\equiv 49\mod 51$.
+	\end{exercise}
+	\begin{exercise}
+		Sabemos que $\left\{ 0,1,2,\dots,16 \right\}$ é SCR módulo $17$. Daí, do Lema 41 segue que $\left\{ 0,3,6,\dots,48 \right\}$ também é, pois $\mdc(3,17) = 1$.
+	\end{exercise}
+	\begin{exercise}
+		Do Lema 51, sabemos que $\left\{ 1, 2, 4, 5, 7, 8 \right\}$ é SRR módulo $9$. Do Lema 53, temos que $\left\{ 11, 13, 17, 19, 23, 43 \right\}$ também é, pois são todos dois a dois incongruentes módulo $9$, são todos coprimos com $9$ e há $\phi(9) = 6$ elementos. Note que $19\equiv 1\mod 9$, $11\equiv 2\mod 9$, $13\equiv 4\mod 9$, $23\equiv 5\mod 9$, $43\equiv 7\mod 9$, $17\equiv 8\mod 9$, o que está em acordância com o Lema 52.
+	\end{exercise}
+	\begin{exercise}
+		Vamos analisar por casos. Temos
+		\begin{align*}
+		\text{se } n\equiv 0\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 0 + 7\cdot 0 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 1\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 1 + 7\cdot 1 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 2\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 8 + 7\cdot 8 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 3\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 3 + 7\cdot 3 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 4\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 4 + 7\cdot 4 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 5\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 5 + 7\cdot 5 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 6\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 0 + 7\cdot 0 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 7\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 7 + 7\cdot 7 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 8\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 8 + 7\cdot 8 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 9\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 9 + 7\cdot 9 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 10\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 4 + 7\cdot 4 \equiv 0 \mod 12 \\
+		\text{se } n\equiv 11\mod 12 \Rightarrow 5n^3 + 7n^5 \equiv 5\cdot 11 + 7\cdot 11 \equiv 0 \mod 12 \\
+		\end{align*}
+		de modo que $5n^3 + 7n^5\equiv 0\mod 12, \forall n\in\mathbb{Z}$.
+	\end{exercise}
+	\begin{exercise}
+		Primeiramente, note que se $n$ é par, então $n^2 \equiv 0\mod 4$ e, se $n$ é ímpar, $n^2 \equiv 1\mod 4$. Desse modo, todo quadrado é congruente a $0$ ou $1$ módulo $4$.
+		\par\vspace{0.3cm} Agora, observe que se $n$ é par, i.e., $n = 2k$, temos
+		\begin{align*}
+		3n^2 - 1 = 3\cdot 4k^2 - 1 \equiv 3\mod 4
+		\end{align*}
+		e, se $n$ é ímpar, i.e., $n = 2k + 1$, temos
+		\begin{align*}
+		3n^2 - 1 = 3\cdot (4k^2 + 4k + 1) - 1 \equiv 2\mod 4
+		\end{align*}
+		de modo que $3n^2 - 1$ não é quadrado para nenhum $n\in\mathbb{Z}$.
+	\end{exercise}
+	\begin{exercise}
+		Note que para todo $n\geq 4$, temos que $n! = 12\cdot M \equiv 0\mod 12$. Desse modo, temos
+		\begin{align*}
+		\sum_{k=1}^{n} k! \equiv 1! + 2! + 3! + \sum_{k=4}^{n}k! \equiv 1! + 2! + 3! \equiv 9\mod 12
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Queremos mostrar que $42|n^7 - n$. Como $42 = 2\cdot 3\cdot 7$, basta mostrarmos que $2$, $3$ e $7$ dividem $n^7 - n$. 
+		\par\vspace{0.3cm} Do Pequeno Teorema de Fermat, temos que
+		\begin{align*}
+		n^7 \equiv n\mod 7 \Leftrightarrow n^7 - n \equiv 0\mod 7 
+		\end{align*}
+		Note também que
+		\begin{align*}
+		n^7 - n = n(n^6 - 1) = n(n^3 - 1)(n^3+1) = (n-1)n(n+1)(n^2+n+1)(n^2-n+1)
+		\end{align*}
+		de modo que $3|n^7 - n$ pois $3|(n-1)n(n+1)$.
+		\par\vspace{0.3cm} Por fim, note que $n^7$ tem sempre a mesma paridade de $n$, de modo que $n^7 - n$ é sempre par, i.e., $2|n^7 - n$.
+		\par\vspace{0.3cm} Portanto, $42|n^7 - n, \forall n\in\mathbb{Z}$.
+	\end{exercise}
+	\begin{exercise}
+		Do Lema de Euler, temos que 
+		\begin{align*}
+		n^{36} \equiv 1\mod 37 \Leftrightarrow n^{4\cdot 9} \equiv 1\mod 37 \Leftrightarrow n^{4\cdot 9^9}\equiv 1\mod 37
+		\end{align*}
+		Note também que mostrar que $n^{9^9} + 4\not\equiv 0\mod 37$ equivale a mostrar que $n^{4\cdot 9^9}\not\equiv 4^4\mod 37$, i.e., que $n^{4\cdot 9^9}\not\equiv 34\mod 37$. Como $n^{4\cdot 9^9} \equiv 1\mod 37$, é claro que $n^{4\cdot 9^9}\not\equiv 34\mod 37$.
+	\end{exercise}
+	\begin{exercise}
+		Vamos proceder por indução em $n$. Para o caso particular $n=1$, temos
+		\begin{align*}
+		4^{3} + 3^3 = 64 + 27 = 91 \equiv 0\mod 13
+		\end{align*}
+		Suponha, por hipótese de indução, que
+		\begin{align*}
+		4^{2k + 1} + 3^{k+2}\equiv 0\mod 13
+		\end{align*}
+		e considere
+		\begin{align*}
+		4^{2k + 3} + 3^{k+3} = 16\cdot 4^{2k + 1} + 3\cdot 3^{k+2} = 3\left( 4^{2k + 1} + 3^{k+2} \right) + 13\cdot 4^{2k + 1} \equiv 0\mod 13
+		\end{align*}
+		por hipótese de indução. O resultado segue, então, por indução.
+	\end{exercise}
+	\begin{exercise}
+		Note que determinar o último dígito na representação decimal de um dado número é determinar seu resto na divisão por $10$. Sendo assim, basta notar que
+		\begin{align*}
+		2^{4k} \equiv 6\mod 10 \\
+		2^{4k+1} \equiv 2\mod 10 \\
+		2^{4k+2} \equiv 4\mod 10 \\
+		2^{4k+3} \equiv 8\mod 10 \\
+		\end{align*}
+		de modo que $2^{400} = 2^{4\cdot 100} \equiv 6\mod 10$.
+	\end{exercise}
+	\begin{exercise}
+		Sabemos que $\left\{ 1, 2, \dots, p-1 \right\}$ é SRR módulo $p$ pelo Lema 51; também sabemos, do Lema 52, que podemos tomar $r_1\in\overline{1}, r_2\in\overline{2}, \dots, r_{p-1}\in\overline{r_{p-1}}$, ou seja, $r_1 = 1, r_2 = 2, \dots, r_{p-1} = p-1$. Desse modo, temos
+		\begin{align*}
+		r_1r_2\cdots r_{p-1}\equiv (p-1)! \equiv -1\mod p
+		\end{align*}
+		pelo Teorema de Wilson.
+	\end{exercise}
+	\begin{exercise}
+		Suponha 
+		\begin{align*}
+		2\cdot (p-3)!\equiv a\mod p
+		\end{align*}
+		de modo que
+		\begin{align*}
+		2\cdot (p-1)! \equiv a(p-2)(p-1) \equiv 2a\mod p \Leftrightarrow (p-1)!\equiv a\mod p
+		\end{align*}
+		pois $\mdc(2,p) = 1$ já que $p$ é primo ímpar. Do Teorema de Wilson temos $a = -1$, ou seja,
+		\begin{align*}
+		2\cdot (p-3)!\equiv -1\mod p
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Sendo $p$ primo ímpar, podemos escrever
+		\begin{align*}
+		(p-1)! = 1\cdot 2 \cdots \frac{p-1}{2}\cdot\frac{p+1}{2}\cdots (p-2)(p-1)
+		\end{align*}
+		de modo que
+		\begin{align*}
+		p-1 &\equiv -1\mod p \\
+		p-2 &\equiv -2\mod p \\
+		&\text{   }\vdots \\
+		\frac{p+1}{2} &\equiv -\frac{p-1}{2}\mod p \\
+		\end{align*}
+		Reordenando os fatores, obtemos
+		\begin{align*}
+		&(p-1)! \equiv 1\cdot (-1)\cdot 2\cdot(-2)\cdots\frac{p-1}{2}\cdot\left( \frac{p+1}{2} \right) \mod p \\
+		\Leftrightarrow& (p-1)! \equiv (-1)^{\frac{p-1}{2}}\left( 1\cdot 2\cdots \frac{p-1}{2} \right)^2\mod p \\
+		\Leftrightarrow& (-1)^{\frac{p-1}{2}}\left( 1\cdot 2\cdots \frac{p-1}{2} \right)^2 \equiv -1\mod p 
+		\end{align*}
+		em que a última congruência segue do Teorema de Wilson. Assim, obtemos
+		\begin{align*}
+		\left[ \left( \frac{p-1}{2} \right)! \right]^2 \equiv (-1)^{\frac{p+1}{2}}\mod p
+		\end{align*}
+		Daí, podemos ver que se $p\equiv 1\mod 4$, então $\displaystyle{\frac{p+1}{2}}$ é ímpar, de modo que $\displaystyle{ \left[ \left( \frac{p-1}{2} \right)! \right]^2 \equiv -1\mod p}$ e, se $p\equiv 3\mod 4$, então $\displaystyle{\frac{p+1}{2}}$ é par, de modo que $\displaystyle{ \left[ \left( \frac{p-1}{2} \right)! \right]^2 \equiv 1\mod p}$, como queríamos.
+	\end{exercise}
+	\begin{exercise}
+		Escreva, sem perda de generalidade, $n = p_1^{\alpha_1}\cdots p_s^{\alpha_s}$, com $p_1 < \cdots < p_s$. Já sabemos que $\phi(n) = p_1^{\alpha_1 - 1}\cdots p_s^{\alpha_s - 1}(p_1 - 1)\cdots (p_s - 1) = 2^3\cdot 3$.
+		\par\vspace{0.3cm} Suponha $p_1\neq 2$. Nesse caso, como devemos ter três fatores $2$ em $\phi(n)$, há três possibilidades:
+		\begin{enumerate}[(i)]
+			\item $s=1$, o que implica
+			\begin{align*}
+			(p_1 - 1) = 2^3 \Rightarrow p_1 = 9 \text{ (Absurdo!)}
+			\end{align*}
+			\item $s=2$, o que implica
+			\begin{align*}
+			(p_1 - 1)(p_2 - 1) = 2^3\Rightarrow p_1 - 1 = 2 \text{ e } p_2 - 1 = 2^2 \Rightarrow p_1 = 3 \text{ e } p_2 = 5
+			\end{align*}
+			\item $s=3$, o que implica
+			\begin{align*}
+			(p_1 - 1)(p_2 - 1)(p_3 - 1) = 2^3\Rightarrow p_1 = p_2 = p_3 = 3 \text{ (Absurdo!)}
+			\end{align*}
+		\end{enumerate}
+	Portanto, se $p_1\neq 2$ então devemos ter necessariamente apenas dois fatores primos em $n$ (a saber, $3$ e $5$). Desse modo, como $\phi(n)$ tem exatamente um fator $3$, então $\alpha_1 = 2$ e, como $\phi(n)$ \textbf{não} tem fator $5$, então $\alpha_2 = 1$, de modo que uma possiblidade é 
+	\begin{align*}
+	n = 3^2\cdot 5 = 45.
+	\end{align*}
+	Agora, suponha que $p_1 = 2$. Então, devemos ter no máximo $3$ fatores primos em $n: 2, 3, 5$, pois se houvesse mais, então teríamos mais de três fatores $2$ em $\phi(n)$. 
+	\par\vspace{0.3cm} Como $\phi(n)$ tem exatamente um fator $3$ e \textbf{nenhum} fator $5$, segue que, se $5$ está na fatoração de $n$, então $\alpha_2 = 2$ e $\alpha_3 = 1$. Isso força que $\alpha_1 = 1$ para que tenhamos $\phi(n) = 2^0\cdot 3\cdot 5^0\cdot 1\cdot 2\cdot 2^2$. Logo, 
+	\begin{align*}
+	n = 2\cdot 3^2\cdot 5 = 90
+	\end{align*} 
+	é outra possibilidade.
+	\par\vspace{0.3cm} Por fim, note que é claro que $3$ deve estar na fatoração de $n$, pois do contrário não haveria fator $3$ em $\phi(n)$. Logo, o último caso que falta analisar é quando temos exatamente dois fatores primos em $n$.
+	\par\vspace{0.3cm} Nesse caso, já sabemos que $\alpha_2 = 2$ para que haja exatamente um fator $3$ em $\phi(n)$. Isso obriga $\alpha_1 = 3$ para que haja três fatores $2$ em $\phi(n)$ e tenhamos $\phi(n) = 2^2\cdot 3\cdot 1\cdot 2$. Portanto, 
+	\begin{align*}
+	n = 2^3\cdot 3^2 = 72
+	\end{align*}
+	é a terceira e última solução.
+	\end{exercise}
+	\begin{exercise}
+		Escreva $n = p_1^{\alpha_1}\cdots p_s^{\alpha_s}$. Temos $\phi(n) = p_1^{\alpha_1 - 1}\cdots p_s^{\alpha_s - 1}(p_1 - 1)\cdots (p_s - 1)$. Escolha, sem perda de generalidade, $p_1 = 3$ e $p_2 < \cdots < p_s$ primos distintos e distintos de $3$. Então, devemos ter $\alpha_1\leq 1$ para que $3\nmid\phi(n)$, pois se $\alpha_1\geq 2$, então $\phi(n)$ terá pelo menos um fator $3$.
+		\par\vspace{0.3cm} Além disso, para os $p_i$'s restantes, devemos ter
+		\begin{align*}
+		p_i - 1\not\equiv 0\mod 3 \Leftrightarrow p_i\not\equiv 1\mod 3 \Leftrightarrow p_i \equiv 2\mod 3, \text{ pois } p_i \text{ não é } 3.
+		\end{align*}
+		Então, devemos ter 
+		\begin{align*}
+		n = 3^a\cdot p_2^{\alpha_2}\cdots p_s^{\alpha_s}, \text{ com } a\in\left\{ 0,1 \right\} \text{ e } p_i\equiv 2\mod 3 \text{ para que } 3\nmid \phi(n).
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Seja $n$ ímpar, de modo que $\mdc(2,n) = 1$. Assim, do Lema 55, temos
+		\begin{align*}
+		\phi(2n) = \phi(2)\phi(n) = \phi(n)
+		\end{align*}
+		Agora, suponha $n$ par e escreva $n = 2^km, m\in\mathbb{Z}$ e $\mdc(2,m) = 1$. Assim, temos
+		\begin{align*}
+		\phi(2n) = \phi(2^{k+1}m) = 2^k\phi(m) = 2\cdot 2^{k-1}\phi(m) = 2\phi(2^k)\phi(m) = 2\phi(2^km) = 2\phi(n).
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Escreva $n = p_1^{\alpha_1}\cdots p_s^{\alpha_s}$. Temos $\phi(n) = p_1^{\alpha_1 - 1}\cdots p_s^{\alpha_s - 1}(p_1 - 1)\cdots (p_s - 1)$. 
+		\par\vspace{0.3cm} Tomando $p_1 = 5, \alpha_1\geq 2$ e $s\geq 1$, teremos pelo menos um fator $5$ e um fator $2$ em $\phi(n)$, ou seja, $10|\phi(n)$. Daí, é claro que há infinitos $n$ tais que $10|\phi(n)$: basta tomar expoentes cada vez maiores e/ou um número cada vez maior de primos, obedecendo às restrições acima.
+	\end{exercise}
+	\begin{exercise}
+		\begin{enumerate}[(a)]
+			\item Note que $\mdc(23,19) = 1$ e $1|7$, logo há exatamente uma solução para essa equação. Pelo Algoritmo de Euclides, temos
+			\begin{align*}
+			23 &= 1\cdot 19 + 4 \\
+			19 &= 4\cdot 4 + 3 \\
+			4 &= 3\cdot 1 + 1 
+			\end{align*}
+			de modo que
+			\begin{align*}
+			1 = 4 - 3 = 4 - (19 - 4\cdot 4) = 23 - 19 - (19 - 4(23 - 19)) = 23(5) + 19(-6)
+			\end{align*}
+			e portanto
+			\begin{align*}
+			7 = 23(35) + 19(-42),
+			\end{align*}
+			ou seja, $x_0 = 35$ é solução (e a única solução).
+			\item Note que $\mdc(23,19) = 1$ e $1|7$, logo há exatamente uma solução para essa equação. Pelo Algoritmo de Euclides, temos
+			\begin{align*}
+			23 &= 1\cdot 19 + 4 \\
+			19 &= 4\cdot 4 + 3 \\
+			4 &= 3\cdot 1 + 1 
+			\end{align*}
+			de modo que
+			\begin{align*}
+			1 = 4 - 3 = 4 - (19 - 4\cdot 4) = 23 - 19 - (19 - 4(23 - 19)) = 23(5) + 19(-6)
+			\end{align*}
+			e portanto
+			\begin{align*}
+			7 = 23(35) + 19(-42),
+			\end{align*}
+			ou seja, $x_0 = 35$ é solução (e a única solução).
+			\item Note que $\mdc(25,120) = 5$ e $5|15$, logo há exatamente cinco soluções para essa equação. Pelo Algoritmo de Euclides, temos
+			\begin{align*}
+			120 &= 4\cdot 25 + 20 \\
+			25 &= 1\cdot 20 + 5  
+			\end{align*}
+			de modo que
+			\begin{align*}
+			5 = 25 - 20 = 25 - (120 - 4\cdot 25) = 25(5) + 120(-1)
+			\end{align*}
+			e portanto
+			\begin{align*}
+			15 = 25(15) + 120(-3),
+			\end{align*}
+			ou seja, $x_0 = 15$ é uma solução. As outras são dados por
+			\begin{align*}
+			x_1 &= x_0 + \frac{120}{5} = 15 + 24 = 39 \\
+			x_2 &= x_0 + \frac{120}{5} = 15 + 2\cdot 24 = 63 \\
+			x_3 &= x_0 + \frac{120}{5} = 15 + 3\cdot 24 = 87 \\
+			x_4 &= x_0 + \frac{120}{5} = 15 + 4\cdot 24 = 111 \\ 
+			\end{align*}
+		\end{enumerate}
+	\end{exercise}
+	
+	
+	
+	
+	
+\end{document}

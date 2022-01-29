@@ -1,0 +1,180 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista de Exercícios para treinar}
+\date{20/08/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle 
+	\begin{exercise}
+		Mostre que se $a|b$ e $b|a$, então $a = \pm b$.
+	\end{exercise}
+	\begin{proof}
+		Se $a|b$, então $b = k_1a$, $k_1\in\mathbb{Z}$. Como $b|a$, segue que $a$ é um múltiplo de $b$. Substituindo em $b = k_1a$, temos que $b = k_1k_2b$, o que implica $k_1k_2 = 1$. Como $k_1, k_2\in\mathbb{Z}$, então devemos ter $k_1 = 1 = k_2$ ou $k_1 = -1 = k_2$. Consequentemente, $a = \pm b$.
+	\end{proof}
+	\begin{exercise}
+		Mostre que se $a|c$ e $b|d$ então $ab|cd$.
+	\end{exercise}
+	\begin{proof}
+		Como $a|c$ e $b|d$, segue que $c = k_1a$ e $d = k_2b$, $k_1, k_2$ inteiros. Fazendo o produto de $c$ e $d$, temos $cd = (k_1k_2)(ab)$, ou seja, $ab|cd$.
+	\end{proof}
+	\begin{exercise}
+		Sejam $a,b,c\in\mathbb{Z}$. Mostre que $\mdc(a,b) = \mdc(a+cb, b) $.
+	\end{exercise}
+	\begin{proof}
+		Sejam $d_1 = \mdc(a,b)$ e $d_2 = \mdc(a+cb, b)$. Por definição, sabemos que $d_1|a$ e $d_1|b$. Logo, $d_1$ divide qualquer combinação inteira de $a$ e $b$, em particular $d_1|a + cb$. Portanto, pela definição do máximo divisor comum, $d_1\leq d_2$.
+		\par Por outro lado, sabemos que $d_2| a+cb$ e $d_2|b$. Dessas relações, sabemos que
+		\begin{align*} 
+		\begin{cases}
+		a+cb = k_1d_2 \\
+		b = k_2d_2
+		\end{cases} \Rightarrow 
+		a = (k_1 - ck_2)d_2 \Leftrightarrow d_2|a
+		\end{align*} 
+		\par Portanto, $d_2\leq d_1$ e segue que $d_1 = d_2$. Analogamente, pode-se mostrar que $\mdc(a,b) = \mdc(a, b+ac)$. 
+	\end{proof}
+	\begin{exercise}
+		Mostre que se $\mdc(a,b) = 1$, então $\mdc(a+b, ab) = 1$.
+	\end{exercise}
+	\begin{proof}
+		Por definição, temos que $d = \mdc(a+b, ab)$ é um número natural que divide $a+b$ e $ab$. Como $d|ab$, segue que $d|a$ ou $d|b$, pois a única maneira de $d$ \textbf{não} dividir $ab$ é se $d$ não divide nem $a$ nem $b$ (basta fazer as contas usando o Algoritmo da Divisão de Euclides). Sem perda de generalidade, suponha que $d|a$. Daí, segue que existem $k_1, k_2\in\mathbb{Z}$ tais que
+		\begin{align*}
+		\begin{cases}
+		a + b = k_1d \\
+		a = k_2d 
+		\end{cases} \Rightarrow b = (k_1 - k_2)d \Leftrightarrow d|b
+		\end{align*}
+		\par Portanto, se $d|a$ então $d|b$ e vice versa, ou seja, $d|a$ e $d|b$. Consequentemente, $d$ é divisor comum de $a$ e $b$, ou seja, $d\leq \mdc(a,b) = 1$. Como $d\in\mathbb{N}$, segue que $d=1$.
+	\end{proof}
+	\begin{exercise}
+		Mostre que $\mdc(3m + 2, 5m+3) = 1$.
+	\end{exercise}
+	\begin{proof}
+		Vamos usar o Exercício 3. Temos que
+		\begin{align*}
+			\mdc(3m+2, 5m+3) &= \mdc( 3m+2, 2m+1 ) \\
+			&= \mdc(m + 1, 2m+1) \\
+			&= \mdc(m+1, m) \\
+			&= \mdc(1, m) \\
+			&= \mdc(1,1) \\
+			&= 1
+		\end{align*}
+		\par Note que de $\mdc(m+1, m)$ já poderíamos concluir que o $\mdc$ é $1$, pois a menor combinação linear (ou seja, o $mdc$) de $m+1$ e $m$ é justamente 
+		\begin{align*}
+		1(m+1) -1(m) = 1
+		\end{align*}
+	\end{proof}
+	\begin{exercise}
+		Use o algoritmo de Euclides para calcular $d = \mdc(a,b)$, e encontrar $r,s\in\mathbb{Z}$ tais que $d = ra + sb$.
+		\begin{equation*}
+		a=412, b=32 \text{; } a=780, b=150 \text{; } a=10672, b=414
+		\end{equation*}
+	\end{exercise}
+	\begin{solution}
+		Para $a = 412$ e $b= 32$, temos
+		\begin{align*}
+		412 &= 32\cdot 12 + 28 \\
+		32 &= 28\cdot 1 + 4 \\
+		28 &= 4\cdot 7 
+		\end{align*}
+		\par Portanto, $\mdc(412, 32) = 4$. Reescrevendo os restos, temos
+		\begin{align*}
+		28 &= 412 - 32\cdot 12 \\
+		4 &= 32 - 28 = 32 - (412 - 12\cdot 32) = -412 + 13\cdot 32 \therefore (r,s) = (-1,13)
+		\end{align*}
+		Para $a = 780$ e $b= 150$, temos
+		\begin{align*}
+		780 &= 150\cdot 5 + 30 \\
+		150 &= 30\cdot 5 
+		\end{align*}
+		\par Portanto, $\mdc(780, 150) = 30$. Reescrevendo os restos, temos
+		\begin{align*}
+		30 &= 780 - 5\cdot 150 \therefore (r,s) = (1,-5)
+		\end{align*}
+		Para $a = 10672$ e $b= 414$, temos
+		\begin{align*}
+		10672 &= 414\cdot 25 + 322 \\
+		414 &= 322\cdot 1 + 92 \\
+		322 &= 92\cdot 3 + 46 \\
+		92 &= 46\cdot 2 
+		\end{align*}
+		\par Portanto, $\mdc(10672, 414) = 46$. Reescrevendo os restos, temos
+		\begin{align*}
+		322 &= 10672 - 414\cdot 25 \\
+		92 &= 414 - 322 = 414 - (10672 - 25\cdot 414) = -10672 + 26\cdot 414 \\
+		46 &= 322 - 3\cdot 92 = 10672 - 25\cdot 414 - 3( -10672 + 26\cdot 414 ) = 4\cdot 10672 - 103\cdot 414 
+		\\ &\therefore (r,s) = (4,-103)
+		\end{align*}
+		
+		
+		
+	\end{solution}
+
+	
+\end{document}

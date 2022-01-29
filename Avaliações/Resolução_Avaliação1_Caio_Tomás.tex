@@ -1,0 +1,163 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista de Avaliação 1}
+\date{04/09/2020}
+\author{Caio Tomás de Paula}
+\begin{document}
+	\maketitle
+	\subsection*{Questão 1.}
+	\begin{proof}
+	Pelo Teorema Fundamental da Aritmética e pelo Lema 15, sabemos que
+	\begin{align*}
+	a = \prod_{i=1}^{n}p_i^{\alpha_i}, \text{  }
+	b = \prod_{i=1}^{n}p_i^{\beta_i}, \text{  }
+	c = \prod_{i=1}^{n}p_i^{\gamma_i}
+	\end{align*}
+	com $p_1\leq p_2\leq \cdots \leq p_n$ primos e $0\leq \alpha_i, \beta_i \leq \gamma_i$, pois $a|c$ e $b|c$. Como $\mdc(a,b) = 1$, segue que $a$ e $b$ não compartilham fatores primos, ou seja, $\alpha_i = 0$ sempre que $\beta_i\neq 0$. Como $a|c$ e $b|c$, sabemos que $c = \lambda_1a = \lambda_2b$, com $\lambda_1, \lambda_2\in\mathbb{Z}$, ou seja, $\lambda_1a = \lambda_2b$. Como $a$ e $b$ não compartilham fatores primos, então devemos ter, necessariamente, $\lambda_2 = n_2a$ e $\lambda_1 = n_1b$, $n_1, n_2\in\mathbb{Z}$. Substituindo, segue que $c = n_1ba = n_2ab$, ou seja, $ab|c$.
+\end{proof}
+\subsection*{Questão 2.}
+\begin{proof}
+	Seja $m\in\mathbb{Z}$ ímpar. Podemos escrever $m = 2j + 1$, $j\in\mathbb{Z}$. Elevando ao quadrado, obtemos
+	\begin{align*}
+	m^2 = 4j^2 + 4j + 1
+	\end{align*}
+	Temos duas possibilidades: ou $j$ é par, ou $j$ é ímpar. Se $j$ é par, então podemos escrever $j = 2n, n\in\mathbb{Z}$. Daí, segue que
+	\begin{align*}
+	m^2 = 4(2n)^2 + 4(2n) + 1 = 8\underbrace{(2n^2 + n)}_{k\in\mathbb{Z}} + 1
+	\end{align*}
+	Se $j$ é ímpar, podemos escrever $j = 2n+1, n\in\mathbb{Z}$. Daí, segue que
+	\begin{align*}
+	m^2 = 4(2n+1)^2 + 4(2n + 1) + 1 = 4(4n^2 + 4n + 1) + 8n + 4 + 1 =8\underbrace{(2n^2 + 3n + 1)}_{k\in\mathbb{Z}} + 1
+	\end{align*}
+\end{proof}
+\subsection*{Questão 3.}
+\begin{proof}
+	Usando o algoritmo de Euclides, temos
+	\begin{align*}
+	1350 &= 2\cdot 504 + 342 \\
+	504 &= 1\cdot 342 + 162 \\
+	342 &= 2\cdot 162 + 18 \\
+	162 &= 9\cdot 18
+	\end{align*}
+	Portanto, segue que $d = 18$. Como $d=18|54$, segue dos Lemas 7 e 8 que a equação diofantina $1350x + 504y = 54$ tem infinitas soluções. Reescrevendo os restos acima, obtemos
+	\begin{align*}
+	342 &= 1350 - 2\cdot 504 \\
+	162 &= 504 - 342 = -1350 + 3\cdot 504 \\
+	18 &= 342 - 2\cdot 162 = 3\cdot 1350 + (-8)\cdot 504
+	\end{align*}
+	Consequentemente, temos $r,s = 3, -8$. Multiplicando a última igualdade por $3$, obtemos
+	\begin{align*}
+	54 = (9)\cdot 1350 + (-24)\cdot 504
+	\end{align*}
+	Portanto, $x_0, y_0 = 9, -24$ é solução de $1350x + 504y = 54$. Segue do Lema 8 que as outras soluções têm a forma
+	\begin{align*}
+	\begin{cases}
+	x = 9 + 28t \\
+	y = -24 - 75t
+	\end{cases}, t\in\mathbb{Z}
+	\end{align*}
+\end{proof}
+	
+\subsection*{Questão 4.}
+\begin{proof}
+	Para o caso particular $n=1$, temos
+	\begin{align*}
+	1^2 = \frac{1\cdot 1\cdot 3}{3} = 1
+	\end{align*}
+	Suponha, por hipótese de indução, que 
+	\begin{align*}
+	1^2 + 3^2 + \cdots + (2k-1)^2 = \frac{k(2k-1)(2k+1)}{3}
+	\end{align*}
+	Agora, considere
+	\begin{align*} 
+	1^2 + 3^2 + \cdots + (2k-1)^2 + (2k+1)^2 &= \frac{k(2k-1)(2k+1)}{3} + (2k+1)^2 \\
+	&= \frac{k(2k-1)(2k+1) + 3(2k+1)^2}{3} \\
+	&= \frac{(2k+1)(k(2k-1) + 3(2k+1)}{3} \\
+	&= \frac{(2k+1)(2k^2 + 5k + 3)}{3} \\
+	&= \frac{(2k+1)(k+1)(2k + 3)}{3} \\
+	&= \frac{(k+1)(2k+1)(2k+3)}{3}
+	\end{align*}
+	Daí, segue por indução que $1^2 + 3^2 + \cdots + (2n-1)^2 = \displaystyle{ \frac{n(2n-1)(2n+1)}{3} }.$
+\end{proof}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

@@ -1,0 +1,279 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\ind}{ind}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+
+\newcommand{\genlegendre}[4]{%
+	\genfrac{(}{)}{}{#1}{#3}{#4}%
+	\if\relax\detokenize{#2}\relax\else_{\!#2}\fi
+}
+\newcommand{\legendre}[3][]{\genlegendre{}{#1}{#2}{#3}}
+
+\title{Resolução Lista 8}
+\date{18/11/2020}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\begin{exercise}
+		Pelo Lema 86, sabemos que $|F_{41}^2| = 20$. Como $41\equiv 1\bmod 4$, segue do Lema 85 que
+		\begin{align*}
+		\legendre[]{-1}{41} = 1
+		\end{align*}
+		e, de modo geral
+		\begin{align*}
+		\legendre[]{-a}{41} = \legendre[]{a}{41}.
+		\end{align*}
+		Como $1,4,9,16,25,36\in E(41)$ são todos quadrados, segue que
+		\begin{align*}
+		\legendre[]{1}{41} = \legendre[]{4}{41} = \legendre[]{9}{41} = \legendre[]{16}{41} = \legendre[]{25}{41} = \legendre[]{36}{41} = 1.
+		\end{align*}
+		Daí, como $1\equiv -40, 4\equiv -37, 9\equiv -32, 16\equiv -25$ e $36\equiv -5\bmod 41$, temos também
+		\begin{align*}
+		\legendre[]{40}{41} = \legendre[]{37}{41} = \legendre[]{32}{41} = \legendre[]{5}{41}.
+		\end{align*}
+		Note que também temos
+		\begin{align*}
+		\legendre[]{32}{41} &= \legendre[]{2}{41}\legendre[]{16}{41} = 1 \Rightarrow \legendre[]{2}{41} &= 1 \\
+		\legendre[]{10}{41} &= \legendre[]{2}{41}\legendre[]{5}{41} = 1 \\
+		\legendre[]{8}{41} &= \legendre[]{2}{41}^3 = 1 \\
+		\legendre[]{18}{41} &= \legendre[]{2}{41}\legendre[]{9}{41} = 1 \\
+		\legendre[]{20}{41} &= \legendre[]{2}{41}\legendre[]{10}{41} = 1
+		\end{align*}
+		Por fim, como $2\equiv -39, 10\equiv -31, 8\equiv -33, 20\equiv -21$ e $18\equiv -23\bmod 41$, temos
+		\begin{align*}
+		\legendre[]{39}{41} = \legendre[]{31}{41} = \legendre[]{33}{41} = \legendre[]{21}{41} = \legendre[]{23}{41} = 1.
+		\end{align*}
+		Logo, o conjunto dos resíduos quadráticos módulo $41$ é
+		\begin{align*}
+		\left\{ 1,2,4,5,8,9,10,16,20,21,23,25,31,32,33,36,37,39,40 \right\}
+		\end{align*}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Pelo Critério de Euler, $17$ é resíduo quadrático módulo $19$ se, e só se,
+			\begin{align*}
+			17^9\equiv 1\bmod 19
+			\end{align*}
+			Note que
+			\begin{align*}
+			17^9\equiv (-2)^9\equiv (-1)\cdot 2^9\equiv (-1)\cdot 2^5\cdot 2^4\equiv (-1)\cdot 13\cdot 16\equiv (-1)\cdot (-6)\cdot(-3)\equiv -18\equiv 1\bmod 19
+			\end{align*}
+			como queríamos mostrar.
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Temos
+			\begin{align*}
+			\mathcal{R}_{23} = \left\{ -11,-10,\dots,-1,1,\dots,10,11 \right\}
+			\end{align*}
+			e
+			\begin{align*}
+			S_{10} = \left\{ 10,20,30,40,50,60,70,80,90,100,110 \right\},
+			\end{align*}
+			de modo que o conjunto dos resíduos principais é
+			\begin{align*}
+			\mathcal{B} = \left\{ 10,-3,7,-6,4,-9,1,11,-2,8,-5 \right\}
+			\end{align*}
+			e podemos escrever
+			\begin{align*}
+			S_{10} = P\cup N = \left\{ 10,30,50,70,80,100 \right\}\cup\left\{20,40,60,90,110\right\}
+			\end{align*}
+			para obter que $\mu = |N| = 5$ e, do Lema de Gauss,
+			\begin{align*}
+			\legendre[]{10}{23} = (-1)^5 = -1
+			\end{align*}
+			e, portanto, $10$ \textbf{não é} resíduo quadrático módulo $23$.
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Pelo Critério de Euler, sabemos que $b$ é resíduo quadrático módulo $p$ se, e só se
+			\begin{align*}
+			b^{\frac{p-1}{2}}\equiv 1\bmod p
+			\end{align*}
+			Aplicando o índice e chamando $t = \ind_g(b)$, obtemos
+			\begin{align*}
+			\frac{p-1}{2}\cdot t\equiv p-1\equiv 0\bmod p-1 \Longleftrightarrow \frac{t}{2}\in\mathbb{Z}\Longleftrightarrow t \text{ é par.}
+			\end{align*}
+			Em particular, como $\forall a\in E(p)\exists b\in\left\{1,2,\dots,p-1\right\}$ tal que $\ind_g(a) = b$, então do que mostramos segue que todo $a$ de índice par é resíduo quadrático. Como em $\left\{ 1,2,\dots,p-1 \right\}$ há exatamente $\displaystyle{\frac{p-1}{2}}$ elementos pares, então há exatamente $\displaystyle{\frac{p-1}{2}}$ resíduos quadráticos módulo $p$.
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		Note que $138 = 2\cdot 3\cdot 23$, de modo que
+		\begin{align*}
+		\legendre[]{138}{883} = \legendre[]{2}{883}\legendre[]{3}{883}\legendre[]{23}{883}
+		\end{align*}
+		Como $883\equiv 3\bmod 8$ e $883\equiv 7\bmod 12$, segue que
+		\begin{align*}
+		\legendre[]{2}{883} = \legendre[]{3}{883} = -1
+		\end{align*}
+		de modo que
+		\begin{align*}
+		\legendre[]{138}{883} = \legendre[]{23}{883}
+		\end{align*}
+		Pela LRQ, temos que
+		\begin{align*}
+		\legendre[]{23}{883}\legendre[]{883}{23} = -1
+		\end{align*}
+		Como $883\equiv 9\bmod 23$, segue que
+		\begin{align*}
+		\legendre[]{883}{23} = 1
+		\end{align*}
+		e, portanto,
+		\begin{align*}
+		\legendre[]{138}{883} = \legendre[]{23}{883} = -1
+		\end{align*}
+		\par\vspace{0.3cm} Note que $135 = 3^3\cdot 5$, de modo que
+		\begin{align*}
+		\legendre[]{135}{1373} = \legendre[]{3^3}{1373}\legendre[]{5}{1373} = \legendre[]{3}{1373}\legendre[]{5}{1373}
+		\end{align*}
+		e, como $1373\equiv 6\bmod 12$ e $1373\equiv 3\bmod 5$, segue que
+		\begin{align*}
+		\legendre[]{135}{1373} = (-1)(-1) = 1.
+		\end{align*}
+	\end{exercise}
+
+	\begin{exercise}
+		Queremos calcular
+		\begin{align*}
+		M = \sum_{i=1}^{11}\left[ \frac{5i}{23} \right]
+		\end{align*}
+		Note que para $i\geq 4$, temos $5i/23<1$. Logo,
+		\begin{align*}
+		M = \sum_{i=5}^{11}\left[ \frac{5i}{23} \right] = 1+1+1+1+1+2+2 = 9
+		\end{align*}
+		Pelo Lema de Gauss-II, obtemos
+		\begin{align*}
+		\legendre[]{5}{23} = (-1)^9 = -1.
+		\end{align*}
+	\end{exercise}
+
+	\begin{exercise}
+		Temos $20964 = 2^2\cdot 3\cdot 1747$, de modo que
+		\begin{align*}
+		\legendre[]{20964}{1987} = \legendre[]{3}{1987}\legendre[]{1747}{1987}
+		\end{align*}
+		Como $1987\equiv 7\bmod 12$, segue do Lema 92 que  
+		\begin{align*}
+		\legendre[]{3}{1987} = -1
+		\end{align*}
+		Pela LRQ, temos
+		\begin{align*}
+		\legendre[]{1747}{1987}\legendre[]{1987}{1747} = -1
+		\end{align*}
+		e, além disso, $1987\equiv 240\bmod 1747$. Temos $240 = 2^4\cdot 3\cdot 5$, de modo que
+		\begin{align*}
+		\legendre[]{1987}{1747} = \legendre[]{240}{1747} = \legendre[]{3}{1747}\legendre[]{5}{1747}
+		\end{align*}
+		Note que $1747\equiv 7\bmod 12$ e $1747\equiv 2\bmod 5$, de modo que pelo Lema 92 e pelo exercício 8 temos
+		\begin{align*}
+		\legendre[]{3}{1747}\legendre[]{5}{1747} = (-1)(-1) = 1
+		\end{align*}
+		de onde segue que
+		\begin{align*}
+		\legendre[]{1987}{1747} = 1 \Longrightarrow \legendre[]{1747}{1987} = -1 \Longrightarrow \legendre[]{20496}{1987} = 1.
+		\end{align*}
+	\end{exercise}
+
+	\begin{exercise}
+		\begin{proof}
+			Aqui estamos considerando $p$ primo ímpar. Note que os únicos resíduos quadráticos módulo $5$ são $1$ e $-1$, ou seja
+			\begin{align*}
+			\legendre[]{p}{5} = 1\Longleftrightarrow p\equiv \pm 1\bmod 5
+			\end{align*}
+			Pela LRQ, temos
+			\begin{align*}
+			\legendre[]{5}{p}\legendre[]{p}{5} = (-1)^{p-1} = 1\text{, pois } p \text{ é ímpar.}
+			\end{align*}
+			Sendo assim, segue que
+			\begin{align*}
+			\legendre[]{5}{p} = 1\Longleftrightarrow \legendre[]{p}{5} = 1\Longleftrightarrow p\equiv \pm 1\bmod 5
+			\end{align*}
+		\end{proof}
+	\end{exercise}
+
+	\begin{exercise}
+		O primeiro passo é transformar a congruência em uma do tipo $x^2\equiv b \bmod 73$. Para isso, resolvemos $8z\equiv 1\bmod 73$, obtendo $z = 64$. Desse modo, segue que
+		\begin{align*}
+		8x^2\equiv 69\bmod 73 \Longleftrightarrow x^2\equiv 64\cdot 69\equiv (-9)\cdot(-3) \equiv 36\bmod 73.
+		\end{align*}
+		É evidente que essa congruência tem solução, por exemplo, $x=6$. Mas suponha que não percebêssemos isso. Vamos calcular então $\displaystyle{\legendre[]{36}{73}}$. Ora, $36=6^2$, de modo que
+		\begin{align*}
+		\legendre[]{36}{73} = \legendre[]{6^2}{73} = 1
+		\end{align*}
+		e, portanto, a congruência $8x^2\equiv 69\bmod 73$ tem solução.
+	\end{exercise}
+
+\end{document}

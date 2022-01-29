@@ -1,0 +1,212 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista de Avaliação 3}
+\date{30/10/2020}
+\author{Caio Tomás de Paula}
+\begin{document}
+	\maketitle
+	\subsection*{Questão 1.}
+	\begin{proof}
+		Pelo Lema de Euler, temos
+		\begin{align*}
+		619^{\phi(15)}\equiv 1\mod 15 \Leftrightarrow 619^{8}\equiv 1\mod 15
+		\end{align*}
+		Note que $1367 = 8\cdot 17 + 7$, logo
+		\begin{align*}
+		619^{1367} = (619^{8})^{17}\cdot 619^7 \equiv 619^7 \equiv 4^7 \equiv (4^2)^3\cdot 4 \equiv 4 \mod 15
+		\end{align*}
+		e o resto da divisão de $619^{1367}$ por $15$ é $4$.
+	\end{proof}
+	\subsection*{Questão 2.}
+	\begin{proof}
+		Escreva
+		\begin{align*}
+		n = 2^{a}\cdot p_2^{\alpha_2}\cdots p_{k+1}^{\alpha_{k+1}}
+		\end{align*}
+		com $p_2, \dots, p_{k+1}$ primos ímpares distintos, $a\in\mathbb{N}\cup\left\{0\right\}$ e $\alpha_i\in\mathbb{N}, 2\leq i\leq k+1$. Sabemos que
+		\begin{align*}
+		\phi(n) = 2^{a-1}\cdot p_2^{\alpha_2-1}\cdots p_{k+1}^{\alpha_{k+1}-1}\cdot (2-1)\prod_{i=2}^{k+1}(p_i - 1).
+		\end{align*}
+		Como os $p_i$'s são ímpares, segue que os $p_i-1$'s são pares, de modo que há pelo menos $k$ fatores $2$ em $\displaystyle{\prod_{i=2}^{k+1} (p_i - 1)}$, ou seja
+		\begin{align*}
+		2^k\Big|\prod_{i=2}^{k+1}(p_i-1)
+		\end{align*}
+		e portanto
+		\begin{align*}
+		2^k|\phi(n).
+		\end{align*}
+	\end{proof}
+	\subsection*{Questão 3.}
+	\begin{proof}
+		Note que
+		\begin{align*}
+		4n^2 + 4 = 4(n^2 + 1)
+		\end{align*}
+		e, portanto, se $19|4n^2+4$ então $19|n^2 + 1$, ou seja,
+		\begin{align*}
+		n^2 + 1\equiv 0\mod 19 \Leftrightarrow n^2\equiv 18\mod 19 \Leftrightarrow n^{18}\equiv 18^9\mod 19.
+		\end{align*}
+		Sabemos que $1$ e $18$ são os únicos elementos em $\left\{ 1,2,\dots,18 \right\}$ cujos inversos são eles próprios e, portanto,
+		\begin{align*}
+		18^2\equiv 1\mod 19\Leftrightarrow 18^8\equiv 1\mod 19\Leftrightarrow 18^9\equiv 18\mod 19.
+		\end{align*}
+		Desse modo, temos que
+		\begin{align*}
+		n^{18}\equiv 18^9\equiv 18\mod 19
+		\end{align*}
+		Por outro lado, temos por Euler que
+		\begin{align*}
+		n^{18}\equiv 1\mod 19
+		\end{align*}
+		o que é absurdo! Logo, $19\nmid 4n^2+4, \forall n\in\mathbb{N}$. 
+	\end{proof}
+	\subsection*{Questão 4.}
+	\begin{proof}
+		Vamos utilizar o Teorema do Resto Chinês para resolver
+		\begin{align*}
+		\begin{cases}
+		2x\equiv 3\mod 5 \\
+		3x\equiv 2\mod 7 \\
+		4x\equiv 6\mod 9 \\
+		6x\equiv 4\mod 11
+		\end{cases}
+		\end{align*} 
+		pois as hipóteses são satisfeitas.
+		\begin{enumerate}[(i)]
+			\item Soluções individuais
+			\begin{align*}
+			x_1 = 4, x_2 = 3, x_3 = 6, x_4 = 8
+			\end{align*}
+			\item Cálculo dos $n_i$'s
+			\begin{align*}
+			n_1 = 7\cdot 9\cdot 11 = 693, n_2 = 5\cdot 9\cdot 11 = 495, n_3 = 5\cdot 7\cdot 11 = 385, n_4 = 5\cdot 7\cdot 9 = 315
+			\end{align*}
+			\item Cálculo dos $z_i$'s
+			\begin{align*}
+			693z\equiv 1\mod 5 \Rightarrow 3z\equiv 1\mod 5 \Rightarrow z_1 = 2 \\
+			495z\equiv 1\mod 7 \Rightarrow 5z\equiv 1\mod 7 \Rightarrow z_2 = 3 \\
+			385z\equiv 1\mod 9 \Rightarrow 7z\equiv 1\mod 9 \Rightarrow z_3 = 4 \\
+			315z\equiv 1\mod 11 \Rightarrow 7z\equiv 1\mod 11 \Rightarrow z_4 = 8 \\
+			\end{align*}
+			\item Solução geral
+			\begin{align*}
+			x_0 &= 4\cdot 693\cdot 2 + 3\cdot 495\cdot 3 + 6\cdot 385\cdot 4 + 8\cdot 315\cdot 8 \\
+			&= 39399 \\
+			&\equiv 1284\mod 3465 (= 5\cdot 7\cdot 9\cdot 11)
+			\end{align*}
+		\end{enumerate}
+	\end{proof}
+	\subsection*{Questão 5.}
+	\begin{proof}
+		Vamos utilizar o lema de Hensel. Note que
+		\begin{align*}
+		f(x) &= x^4 + 10x^2 + x + 3 \\
+		f'(x) &= 4x^3 + 20x + 1
+		\end{align*}
+		Note que 
+		\begin{align*}
+		f(1) = 15 = 5\cdot 3\equiv 0\mod 3 \\
+		f'(1) = 25\equiv 1\not\equiv 0\mod 3
+		\end{align*}
+		e podemos aplicar o lema de Hensel. Então, queremos $t_1$ tal que
+		\begin{align*}
+		f(1 + 3t_1) \equiv 0\mod 3^2 \Leftrightarrow 5 + t_1\equiv 0\mod 3\Leftrightarrow t_1\equiv 1\mod 3.
+		\end{align*}
+		Logo, $a_1 = 1 + 3 = 4$. Note que
+		\begin{align*}
+		f(4) &= 423 = 47\cdot 9\equiv 0\mod 9 \\
+		f'(4) &= 337 \equiv 1\not\equiv 0\mod 3
+		\end{align*}
+		de modo que podemos aplicar o lema de Hensel novamente. Então, queremos $t_2$ tal que
+		\begin{align*}
+		f(4+9t_2)\equiv 0\mod 3^3 \Leftrightarrow 47 + t_2\equiv 0\mod 3 \Leftrightarrow 2 + t_2\equiv 0\mod 3 \Leftrightarrow t_2 = 1\mod 3.
+		\end{align*}
+		Logo, $a_2 = 4 + 9\cdot 1 = 13$. Note que
+		\begin{align*}
+		f(13) &= 30267 = 1121\cdot 27\equiv 0\mod 27 \\
+		f'(13) &= 9049 \equiv 1\not\equiv 0\mod 3
+		\end{align*}
+		e portanto podemos aplicar o lema de Hensel mais uma vez. Então, queremos $t_3$ tal que
+		\begin{align*}
+		f(13+27t_3)\equiv 0\mod 3^4\Leftrightarrow 1121 + 1\cdot t_3\equiv 0\mod 3 \Leftrightarrow t_3 = 1\mod 3.
+		\end{align*}
+		Logo, $a_3 = 13 + 27\cdot 1 = 40$ é raiz de $f(x) = x^4 + 10x^2 + x + 3$ módulo $3^4$.  
+	\end{proof}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
