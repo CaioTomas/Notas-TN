@@ -1,0 +1,262 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista 2}
+\date{}
+\author{Caio Tomás}
+\begin{document}
+	\maketitle
+	\subsubsection*{Equações diofantinas lineares}
+	\begin{exercise}
+		Calculando $\mdc(512, 28)$ usando o Algoritmo de Euclides para o cálculo do MDC, segue que
+		\begin{align*}
+			512 &= 28\cdot 18 + 8 \\
+			28 &= 8\cdot 3 + 4 \\
+			8 &= 4\cdot 2
+		\end{align*}
+		Logo, $\mdc(512,28) = 4$. Como $4|48$, segue que a equação diofantina $512x + 28y = 48$ tem infinitas soluções. Reescrevendo os restos acima, temos
+		\begin{align*}
+		8 &= 512 - 28\cdot 18 \\
+		4 &= 28 - 3\cdot 8 = 28 - 3\cdot( 512 - 28\cdot 18 ) = (-3)\cdot 512 + (55)\cdot 28
+		\end{align*}
+		Portanto, segue que
+		\begin{align*}
+		48 = (-36)\cdot 512 + (660)\cdot 28
+		\end{align*}
+		Portanto, uma solução é $x_0, y_0 = -36, 660$. A partir daí, pelo Lema 8, as outras soluções são dadas por
+		\begin{align*}
+		\begin{cases}
+		x = -36 + \displaystyle{\frac{28}{4}}\cdot t \\
+		y = 660 - \displaystyle{\frac{512}{4}}\cdot t
+		\end{cases} \Leftrightarrow \begin{cases}
+		x = -36 + 7t \\
+		y = 660 - 128t
+		\end{cases}, t\in\mathbb{Z}
+		\end{align*}
+	\end{exercise}
+	\begin{exercise}
+		Calculando $\mdc(1257, 108)$ usando o Algoritmo de Euclides para o cálculo do MDC, temos
+		\begin{align*}
+		1257 &= 108\cdot 11 + 69 \\
+		108 &= 69\cdot 1 + 39 \\
+		69 &= 39\cdot 1 + 30 \\
+		39 &= 30\cdot 1 + 9 \\
+		30 &= 9\cdot 3 + 3 \\
+		9 &= 3\cdot 3 
+		\end{align*}
+		Logo, $\mdc(1257, 108) = 3$. Como $3|54$, segue que a equação diofantina $1257x + 108y = 54$ tem infinitas soluções. Reescrevendo os restos acima, temos
+		\begin{align*}
+		69 &= 1257 - 108\cdot 11 \\
+		39 &= 108 - 69 = -1257 + 12\cdot 108 \\
+		30 &= 69 - 39 = 1257 - 11\cdot 108 + 1257 - 12\cdot 108 = 2\cdot 1257 - 23\cdot 108 \\
+		9 &= 39 - 30 = -1257 + 12\cdot 108 - 2\cdot 1257 + 23\cdot 108 = -3\cdot 1257 + 35\cdot 108 \\
+		3 &= 30 - 3\cdot 9 = 2\cdot 1257 - 23\cdot 108 + 9\cdot 1257 - 105\cdot 108 = (11)\cdot 1257 + (-128)\cdot 108
+		\end{align*}
+		Portanto, segue que
+		\begin{align*}
+		54 = (198)\cdot 1257 + (-2304)\cdot 108
+		\end{align*}
+		Portanto, uma solução é $x_0, y_0 = 198, -2304$. A partir daí, pelo Lema 8, as outras soluções são dadas por
+		\begin{align*}
+		\begin{cases}
+		x = 198 + \displaystyle{\frac{108}{3}}\cdot t \\
+		y = -2304 - \displaystyle{ \frac{1257}{3}}\cdot t
+		\end{cases} \Leftrightarrow \begin{cases}
+		x = 198 + 36t \\
+		y = -2304 - 419t
+		\end{cases}, t\in\mathbb{Z}
+		\end{align*}		
+	\end{exercise}
+	\begin{exercise}
+		Calculando $\mdc(4875, 2223)$ usando o Algoritmo de Euclides para o cálculo do MDC, temos
+		\begin{align*}
+		4875 &= 2223\cdot 2 + 429 \\
+		2223 &= 429\cdot 5 + 78 \\
+		429 &= 78\cdot 5 + 39 \\
+		78 &= 39\cdot 2 
+		\end{align*}
+		Logo, $\mdc(4875, 2223) = 39$. Como $39|117$, segue que a equação diofantina $4875x + 2223y = 117$ tem infinitas soluções. Reescrevendo os restos acima, temos
+		\begin{align*}
+		429 &= 4875 - 2\cdot 2223 \\
+		78 &= 2223 - 5\cdot 429 = -5\cdot 4875 + 11\cdot 2223 \\
+		39 &= 429 - 5\cdot 78 = (26)\cdot 4875 + (-57)\cdot 2223
+		\end{align*}
+		Portanto, segue que 
+		\begin{align*}
+		117 = (78)\cdot 4875 + (-171)\cdot 2223
+		\end{align*}
+		Portanto, uma solução é $x_0, y_0 = 78, -171$. A partir daí, pelo Lema 8, as outras soluções são dadas por
+		\begin{align*}
+		\begin{cases}
+		x = 78 + \displaystyle{ \frac{2223}{39} }\cdot t \\
+		y = -171 - \displaystyle{ \frac{4875}{39} }\cdot t
+		\end{cases} \Leftrightarrow \begin{cases}
+		x = 78 + 57t \\
+		y = -171 - 125t
+		\end{cases}, t\in\mathbb{Z}
+		\end{align*}
+	\end{exercise}
+	\subsubsection*{Indução matemática}
+	\begin{exercise}
+		\begin{proof}
+		Para o caso particular $n = 1$, temos
+		\begin{align*}
+		1 = 1^2
+		\end{align*}
+		logo $p(1)$ é verdadeira. Suponha, por hipótese de indução, que 
+		\begin{align*}
+		1 + 3 + \cdots + (2k-1) = k^2
+		\end{align*}
+		e considere
+		\begin{align*}
+		1 + 3 + \cdots + (2k - 1) + (2k + 1) = k^2 + 2k + 1 = (k + 1)^2
+		\end{align*}
+		ou seja, $p(k+1)$ é verdadeira, pois $2k + 1 = 2(k+1) - 1$. Logo, por indução, segue que $1 + 3 + \cdots + (2n-1) = n^2, \forall n\in\mathbb{N}$.
+	\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Para o caso particular $n=1$, temos
+			\begin{align*}
+				1^2 = \frac{1\cdot 2\cdot 3}{6} = 1
+			\end{align*}
+			logo $p(1)$ é verdadeira. Suponha, por hipótese de indução, que 
+			\begin{align*}
+			1^2 + \cdots + k^2 = \frac{k(k+1)(2k+1)}{6}
+			\end{align*}
+			e considere
+			\begin{align*}
+			1^2 + \cdots + k^2 + (k+1)^2 &= \frac{k(k+1)(2k+1)}{6} + (k+1)^2 \\
+			&= \frac{ (k+1)(2k^2+k+6k+6) }{ 6 } \\
+			&= \frac{(k+1)(2k^2 + 7k + 6)  }{6} \\
+			&= \frac{(k+1)(k+2)(2k+3) }{6}
+			\end{align*}
+			ou seja, $p(k+1)$ é verdadeira, pois $2k + 3 = 2(k+1) + 1$. Logo, por indução, segue que $1^2 + 2^2 + \cdots + n^2 = \displaystyle{ \frac{n(n+1)(2n+1)}{6} }, \forall n\in\mathbb{N}$.
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Para o caso particular $n=1$, temos
+			\begin{align*}
+			1\cdot 2 = \frac{1\cdot 2\cdot 3}{3} = 2
+			\end{align*}
+			logo $p(1)$ é verdadeira. Suponha, por hipótese de indução, que 
+			\begin{align*}
+			1\cdot 2 + 2\cdot 3 + \cdots + k\cdot(k+1) = \frac{k(k+1)(k+2)}{3}
+			\end{align*}
+			e considere
+			\begin{align*}
+			1\cdot 2 + 2\cdot 3 + \cdots + k\cdot (k+1) + (k+1)\cdot (k+2) &= \frac{k(k+1)(k+2)}{3} + (k+1)\cdot (k+2) \\
+			&= \frac{(k+1)(k+2)(k+3)}{3}
+			\end{align*}
+			ou seja, $p(k+1)$ é verdadeira. Logo, por indução, segue que $1\cdot 2 + \cdots + n\cdot (n+1) = \displaystyle{\frac{n(n+1)(n+2)}{3}}, \forall n\in\mathbb{N}$.
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Para o caso particular $n=4$, temos
+			\begin{align*}
+			2^4 = 16 < 24 = 4!
+			\end{align*}
+			logo $p(4)$ é verdadeira. Suponha, por hipótese de indução, que 
+			\begin{align*}
+			2^k < k!
+			\end{align*} 
+			e multiplique ambos os lados da igualdade por $k+1$ para obter
+			\begin{align*}
+			2^k(k+1) < (k+1)!
+			\end{align*}
+			Agora, note que como $k\geq 4$ (por hipótese), então $k+1\geq 5$. Daí, temos
+			\begin{align*}
+			2^{k+1} < 2^k\cdot 5 \leq 2^k(k+1) < (k+1)!
+			\end{align*}
+			ou seja, $p(k+1)$ é verdadeira. Logo, por indução, segue que $2^n < n!, \forall n\geq 4$.
+		\end{proof}
+	\end{exercise}
+	\begin{exercise}
+		\begin{proof}
+			Para o caso particular $n=1$, temos
+			\begin{align*}
+			\frac{2!}{2\cdot 1!} = 1\in\mathbb{Z}
+			\end{align*}
+			logo $p(1)$ é verdadeira. Suponha, por hipótese de indução, que
+			\begin{align*}
+			\frac{(2k)!}{2^k\cdot k!}\in\mathbb{Z}
+			\end{align*} 
+			e considere
+			\begin{align*}
+			\frac{(2k+2)!}{2^{k+1}\cdot (k+1)!} = \frac{ (2k+2)(2k+1) }{2(k+1) }\cdot\underbrace{\frac{(2k)!}{2^k\cdot k!}}_{\in\mathbb{Z}} = (2k+1)\cdot\underbrace{\frac{(2k)!}{2^k\cdot k!}}_{\in\mathbb{Z}}\in\mathbb{Z}
+			\end{align*}
+			pois $2k+1\in\mathbb{Z}$. Portanto, $p(k+1)$ é verdadeira, e segue por indução que $\displaystyle{ \frac{(2k)!}{2^k\cdot k!}\in\mathbb{Z},\forall n\in\mathbb{N} }$. 
+		\end{proof}
+	\end{exercise}
+	
+	
+	
+\end{document}

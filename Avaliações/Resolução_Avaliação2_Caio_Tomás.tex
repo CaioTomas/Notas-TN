@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista de Avaliação 2}
+\date{18/09/2020}
+\author{Caio Tomás de Paula}
+\begin{document}
+	\maketitle
+	\subsection*{Questão 1.}
+	\begin{proof}
+	Pelo TFA, temos 
+	\begin{align*}
+	c = q_1q_2\cdots q_s, \text{ com } q_1 < q_2 < \cdots < q_s \text{ primos.}
+	\end{align*}
+	Daí, é claro que
+	\begin{align*}
+	c^m = q_1^mq_2^m\cdots q_s^m
+	\end{align*}
+	ou seja, elevar $c$ à $m$-ésima potência não altera os primos que aparecem na fatoração de $c$, apenas sua quantidade. Desse modo, se $p|c^m$, então necessariamente $p=q_j$ para algum $1\leq j\leq s$. Sem perda de generalidade, suponha que $p = q_1$. Desse modo, temos
+	\begin{align*}
+	c^m = p^m(q_2^m\cdots q_s^m)
+	\end{align*}
+	Note, por fim, que como $p^{m+1}\nmid c^m$, então, pelo Lema 9, $\mdc(p^{m+1}, c^m) = 1$. Em outras palavras, a maior potência de $p$ que aparece na fatoração de $c^m$ é $p^m$. Isso nos diz que em $\lambda = q_2^m\cdots q_s^m$ teremos $p\neq q_i$, para todo $2\leq i\leq s$. Dito de outro modo, temos
+	\begin{align*}
+	c^m = p^m\lambda, \text{ com } \mdc(p,\lambda) = 1
+	\end{align*}
+	como queríamos.
+\end{proof}
+\subsection*{Questão 2.}
+\begin{proof}
+	Note que
+	\begin{align*}
+	n^3 + 1 = \underbrace{(n+1)}_{\geq 3}\underbrace{(n^2 - n + 1)}_{\geq 3} 
+	\end{align*}
+	ou seja, $n^3 + 1$ pode ser escrito como um produto de dois inteiros maiores que $1$. Em particular, segue do TFA que $n^3 + 1$ pode ser escrito como o produto de pelo menos dois primos, sendo, portanto, composto.
+\end{proof}
+\subsection*{Questão 3.}
+\begin{proof}
+	Vamos proceder por indução em $n$. Como casos particulares, note que
+	\begin{align*}
+	&F_1 = 1 = F_2 \\
+	&F_1 + F_3 = 1 + 2 = 3 = F_4
+	\end{align*}
+	e nossa proposição é verdadeira. Suponha, por hipótese de indução, que 
+	\begin{align*}
+	F_1 + F_3 + \cdots + F_{2k-1} = F_{2k}
+	\end{align*}
+	e considere
+	\begin{align}
+	\label{tese inducao}
+	F_1 + F_3 + \cdots + F_{2k-1} + F_{2k+1}
+	\end{align}
+	Usando a hipótese de indução em \eqref{tese inducao}, obtemos
+	\begin{align*}
+	F_1 + F_3 + \cdots + F_{2k-1} + F_{2k+1} &= F_{2k} + F_{2k+1} \\
+	&= F_{2(k+1)}
+	\end{align*}
+	pela recorrência da sequência de Fibonacci, como desejado, e o resultado segue por indução.
+\end{proof}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

@@ -1,0 +1,220 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{textcomp}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xfrac}
+\usepackage{hyperref}
+\usepackage{xfrac}
+\usepackage{enumerate}
+\usepackage{cancel}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\aut}{Aut}
+\DeclareMathOperator{\inn}{Inn}
+\DeclareMathOperator{\stab}{stab}
+\DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\mdc}{mdc}
+\DeclareMathOperator{\mmc}{mmc}
+\DeclareMathOperator{\syl}{Syl}
+\DeclareMathOperator{\tor}{Tor}
+\DeclareMathOperator{\Sim}{Sim}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\ind}{ind}
+
+% Times for rm and math | Helvetica for ss | Courier for tt
+%\usepackage{mathptmx} % rm & math
+%\usepackage[scaled=0.90]{helvet} % ss
+%\usepackage{courier} % tt
+%\normalfont
+%\usepackage[T1]{fontenc}
+
+\usepackage[all]{xy}
+
+%\input xy
+%\xyoption{all}
+
+%\documentclass{standalone}
+
+\usepackage{anonchap}
+\usepackage[symbol]{footmisc}
+\usepackage{anonchap}
+\usepackage[Sonny]{fncychap}
+%\usepackage[brazilian]{babel}
+%\usepackage[portuguese]{babel}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+%\usepackage[center]{caption}
+
+\newcommand{\genlegendre}[4]{%
+	\genfrac{(}{)}{}{#1}{#3}{#4}%
+	\if\relax\detokenize{#2}\relax\else_{\!#2}\fi
+}
+\newcommand{\legendre}[3][]{\genlegendre{}{#1}{#2}{#3}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem*{definition}{Definição}
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{remark}{Observação}[section]
+\newtheorem{deff}{Definição}[section]
+\newtheorem{fact}{Fato}[section]
+\newtheorem{exercise}{Exercício}%[section]
+\newtheorem{example}{Exemplo}[section]
+\newtheorem{prop}{Proposição}[section]
+\newtheorem*{solution}{Solução}
+\title{Resolução Lista de Avaliação 4}
+\date{27/11/2020}
+\author{Caio Tomás de Paula}
+\begin{document}
+	\maketitle
+	\subsection*{Questão 1.}
+	\begin{proof}
+		Primeiro, note que $\phi(31) = 30$, cujos divisores positivos são $1,2,3,5,6,10,15$ e $30$. Temos
+		\begin{align*}
+		3^1 &\equiv 3\bmod 31 \\
+		3^2 &\equiv 9\bmod 31 \\
+		3^3 &\equiv -4\bmod 31 \\
+		3^4 &\equiv -12\bmod 31 \\
+		3^5 &\equiv -5\bmod 31 \\
+		3^6 &\equiv -15\bmod 31 \\
+		3^{10} &\equiv 25\bmod 31 \\
+		3^{15} &\equiv -125 \equiv -1\bmod 31 \\
+		3^{30} &\equiv 1\bmod 31
+		\end{align*}
+		de modo que $3$ de fato é raiz primitiva módulo $31$. 
+		\par Agora, note que $\mdc(25,31) = 1$ e $\mdc(85,30) = 5$, de modo que se a congruência
+		\begin{align*}
+		x^{85}\equiv 25\bmod 31
+		\end{align*} 
+		tem solução, então ela tem exatamente $5$ soluções. Aplicando o índice na base $3$ módulo $31$ à congruência, obtemos a outra congruência
+		\begin{align*}
+		85\cdot \ind_{3}(x)\equiv \ind_3(25)\bmod 30 \Longleftrightarrow 85y\equiv \ind_3(25)\bmod 30
+		\end{align*}
+		Dos primeiros cálculos, temos que $\ind_3(25) = 10$, e a congruência é
+		\begin{align*}
+		85y\equiv 10\bmod 30 \Longleftrightarrow 25y\equiv 10\bmod 30 
+		\end{align*}
+		que tem exatamente $5$ soluções pois $5 = \mdc(25,30)|10$. Reescrevendo $\mdc(25,30)$, temos
+		\begin{align*}
+		5 = 30\cdot (1) + 25\cdot (-1) \Longleftrightarrow 10 = 30\cdot(2) + 25\cdot(-2)
+		\end{align*}
+		de modo que $y_0 = -2$ é solução da congruência linear. As demais soluções são
+		\begin{align*}
+		y_0 = -2, y_1 = -2 + 30/5 = 4, y_2 = 10, y_3 = 16, y_4 = 22.
+		\end{align*}
+		Lembre que $y = \ind_3(x)$, de modo que precisamos obter os $x_i$ cujos índices são os $y_i, i = 0,1,2,3,4$. Complementando os primeiros cálculos, temos que
+		\begin{align*}
+		3^6 \equiv -15 \equiv 16\bmod 31 &\Longleftrightarrow \ind_3(16) = 6 \\
+		3^9 \equiv 60 \equiv 29 \equiv -2\bmod 31 &\Longleftrightarrow \ind_3(-2) = 9 \\
+		3^{14} \equiv 25\cdot (-12) \equiv 72 \equiv 10\bmod 31 &\Longleftrightarrow \ind_3(10) = 14 \\
+		3^{17} \equiv 10\cdot(-4) \equiv -9 \equiv 22\bmod 31 &\Longleftrightarrow \ind_3(22) = 17 \\
+		3^{18} \equiv 66 \equiv 4 \bmod 31 &\Longleftrightarrow \ind_3(4) = 18 \\
+		\end{align*}
+		e, por fim,
+		\begin{align*}
+		x_0 = 9, x_1 = 18, x_2 = 14, x_3 = 6, x_4 = 17
+		\end{align*}
+		que são as soluções desejadas.
+	\end{proof}
+	\subsection*{Questão 2.}
+	\begin{enumerate}[(a)]
+		\item \begin{proof}
+			Queremos mostrar que
+			\begin{align*}
+			7^{14}\equiv 1\bmod 29.
+			\end{align*}
+			Para isso, basta notar que
+			\begin{align*}
+			7^2 &= 49 \equiv 20\bmod 29 \\
+			7^4 &\equiv 400 \equiv 23\bmod 29 \\
+			7^8 &\equiv 36 \equiv 7 \bmod 29 \\
+			7^{14} &\equiv (20)\cdot(23)\cdot(7) \equiv 23\cdot 24 \equiv 552 \equiv 1 \bmod 29 \\.
+			\end{align*}
+		\end{proof}
+	\item \begin{proof}
+		O conjunto dos restos principais módulo $29$ é
+		\begin{align*}
+		\mathcal{R}_{29} = \left\{ -14, -13, \dots, -1,1,\dots, 13, 14 \right\}
+		\end{align*}
+		e, para usar o Lema de Gauss, determinamos $S_{7}:$
+		\begin{align*}
+		S_7 = \left\{ 7,14,21,28,35,42,49,56,63,70,77,84,91,98 \right\}.
+		\end{align*}
+		Assim, o conjunto dos restos principais é 
+		\begin{align*}
+		\mathcal{B} = \left\{ 7,14,-8,-1,6,13,-9,-2,5,12,-10,-3,4,11 \right\},
+		\end{align*}
+		que possui $6$ elementos negativos. Sendo assim, segue do Lema de Gauss que
+		\begin{align*}
+			\legendre[]{7}{29} = (-1)^6 = 1
+		\end{align*}
+		ou seja, $7$ é resíduo quadrático módulo $29$.
+	\end{proof}
+	\item \begin{proof}
+		Vamos calcular 
+		\begin{align*}
+		M = \sum_{i=1}^{14}\left[ \frac{7i}{29} \right].
+		\end{align*}
+		Note que para $i\leq 4$, as respectivas parcelas são nulas, i.e.,
+		\begin{align*}
+		M = \sum_{i=5}^{14}\left[ \frac{7i}{29} \right] = 1+1+1+1+2+2+2+2+3+3 = 18
+		\end{align*}
+		e, pelo Lema de Gauss II, segue que
+		\begin{align*}
+		\legendre[]{7}{29} = (-1)^{18} = 1
+		\end{align*}
+		ou seja, $7$ é resíduo quadrático módulo $29$.
+	\end{proof}
+	\end{enumerate}
+	\subsection*{Questão 3.}
+	\begin{solution}
+		Note que $2204 = 2^2\cdot 19\cdot 29$, de modo que
+		\begin{align*}
+		\legendre[]{2204}{907} = \legendre[]{2^2}{907}\legendre[]{19}{907}\legendre[]{29}{907} = \legendre[]{19}{907}\legendre[]{29}{907}
+		\end{align*}
+		Pela LRQ, temos que
+		\begin{align*}
+		\legendre[]{19}{907}\legendre[]{907}{19} = (-1)^{9\cdot 453} = -1.
+		\end{align*}
+		Além disso, também temos que $907\equiv 14\equiv 2\cdot 7\bmod 19$, de modo que
+		\begin{align*}
+		\legendre[]{907}{19} = \legendre[]{2}{19}\legendre[]{7}{19} = -\legendre[]{7}{19}
+		\end{align*}
+		pois $19\equiv 3\bmod 8$. Agora, notando que
+		\begin{align*}
+		7^2 = 49 &\equiv 11 \bmod 19 \\
+		7^4 \equiv 121 &\equiv 7 \bmod 19 \\
+		7^8 \equiv 49 &\equiv 11 \bmod 19 \\
+		7^9 \equiv 77 &\equiv 1 \bmod 19  
+		\end{align*}
+		de modo que $\displaystyle{ \legendre[]{7}{19} = 1 }$ pelo Critério de Euler e, portanto, $\displaystyle{ \legendre[]{907}{19} = -1 }$ e $\displaystyle{ \legendre[]{19}{907} = 1 }$.
+		\par Agora, também pela LRQ, temos que
+		\begin{align*}
+		\legendre[]{29}{907}\legendre[]{907}{29} = (-1)^{14\cdot 453} = 1.
+		\end{align*}
+		Além disso, também temos que $907 \equiv 8 \equiv 2^3\bmod 29$, de modo que
+		\begin{align*}
+		\legendre[]{907}{29} = \legendre[]{2^3}{29} = \legendre[]{2}{29} = -1
+		\end{align*}
+		pois $29\equiv 5\bmod 8$. Portanto, $\displaystyle{ \legendre[]{29}{907} = -1 }$, e segue que
+		\begin{align*}
+		\legendre[]{2204}{907} = \legendre[]{19}{907}\legendre[]{29}{907} = -1.
+		\end{align*}
+	\end{solution}
+	
+	
+	
+\end{document}
